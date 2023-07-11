@@ -13,40 +13,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://example.com').hostname,
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="JintaoChen&#39;s blog">
@@ -63,8 +35,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -107,17 +80,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">JintaoChen's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -125,30 +87,43 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JintaoChen's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -164,80 +139,12 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content index posts-expand">
             
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/11/lab1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JintaoChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JintaoChen's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/11/lab1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-title-link" itemprop="url">未命名</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-11 17:58:46" itemprop="dateCreated datePublished" datetime="2023-07-11T17:58:46+08:00">2023-07-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-16 15:34:54" itemprop="dateModified" datetime="2020-09-16T15:34:54+08:00">2020-09-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <h1 id="lab1-实验报告"><a href="#lab1-实验报告" class="headerlink" title="lab1 实验报告"></a>lab1 实验报告</h1><h2 id="练习1："><a href="#练习1：" class="headerlink" title="练习1："></a>练习1：</h2><p>1.首先采用beautifulsoup 库</p>
-<p>2.采用纯正则表达式匹配</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/11/%E5%8D%9A%E5%AE%A2%E9%87%8D%E5%90%AF%E4%BB%A5%E5%8F%8A%E8%BF%81%E7%A7%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -250,20 +157,20 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2023/07/11/%E5%8D%9A%E5%AE%A2%E9%87%8D%E5%90%AF%E4%BB%A5%E5%8F%8A%E8%BF%81%E7%A7%BB/" class="post-title-link" itemprop="url">博客重启以及迁移</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-07-11 16:57:51 / 修改时间：17:04:30" itemprop="dateCreated datePublished" datetime="2023-07-11T16:57:51+08:00">2023-07-11</time>
+              <time title="创建时间：2023-07-11 16:57:51 / 修改时间：18:24:44" itemprop="dateCreated datePublished" datetime="2023-07-11T16:57:51+08:00">2023-07-11</time>
             </span>
 
           
@@ -294,10 +201,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/25/discrete-mathematics-review/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -310,15 +217,15 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2020/08/25/discrete-mathematics-review/" class="post-title-link" itemprop="url">discrete mathematics review</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -326,7 +233,7 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-08-26 23:02:10" itemprop="dateModified" datetime="2020-08-26T23:02:10+08:00">2020-08-26</time>
@@ -418,123 +325,10 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/28/%E7%94%B5%E5%B7%A5%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JintaoChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JintaoChen's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/28/%E7%94%B5%E5%B7%A5%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">电工导大作业笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-28 19:59:09" itemprop="dateCreated datePublished" datetime="2020-04-28T19:59:09+08:00">2020-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-07 22:37:32" itemprop="dateModified" datetime="2020-05-07T22:37:32+08:00">2020-05-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数:"></a>匿名函数:</h1><p>匿名函数，就是没有名字的函数。</p>
-<p>一般的有名函数:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>  <span class="title function_">myFun</span>(<span class="params"> a,b </span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>( a+b );</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">myFun</span>( <span class="number">10</span> , <span class="number">30</span> );  <span class="comment">// 输出40</span></span><br></pre></td></tr></table></figure>
-
-<p>匿名函数: 有关键词 function， 有小括号，有大括号，就是没有函数名。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>( a+b );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>想要执行它，怎么执行？没有名字，怎么调用？</p>
-<p>方式一：把它放进一个变量里，这个变量就相当于一个函数名了。没有名字的匿名函数，变成有“名”函数了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span>  myFun = <span class="keyword">function</span>(<span class="params"> a,b </span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>( a+b);</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="title function_">myFun</span>( <span class="number">10</span>,<span class="number">30</span> );</span><br></pre></td></tr></table></figure>
-
-<p>方式二：干脆不要名字，直接执行~！– 这么做可以在内容形成局部变量和局部函数，防止全局污染。</p>
-<p>常用的直接执行匿名函数的方式</p>
-<p>(匿名函数)();</p>
-<p>(匿名函数() );</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>( a+b );</span><br><span class="line">&#125;)(<span class="number">10</span>,<span class="number">30</span>);</span><br><span class="line"> </span><br><span class="line">(<span class="keyword">function</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>( a+b );</span><br><span class="line">&#125;(<span class="number">10</span>,<span class="number">30</span>));</span><br></pre></td></tr></table></figure>
-<p>————————————————<br>版权声明：本文为CSDN博主「stones4zd」的原创文章<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42703239/article/details/88371031">https://blog.csdn.net/weixin_42703239/article/details/88371031</a></p>
-<h1 id=""><a href="#" class="headerlink" title="$"></a>$</h1><p>$ 是合法的IdentifierStart 就是可以作为变量名,函数名,形参的第一个字符. 就如同 _ 下划线一样. 但.$最初在ES3时代.在标准中,是建议保留使用的.保留给机器自动生成代码使用.比如以javascript作为编译目标语言的语言等等. 这本来是一个弱约束的公约. 但随着jquery等,没有遵守这个公约的库大行其道. 这个弱约束就名存实亡了. 到了ES5时代.这个保留使用的建议, 也被取消了. 所以你问 $是什么. _是什么,他就是什么. 不同的之处在于 他是jquery崛起的历史见证.<br>“$”符号的定义</p>
-<p>$符号在JS里是可以当做identifier的，也就是说可以当成变量名称，或者函数名称，并且可以打头（不同于一些语言比如c什么的只能用字母打头后接字母或者数字），甚至可以单独使用所以就明了了，$只是一个变量或者函数这里的话$就是jQuery的对象了，严格的说它应该是jQuery对象的构造函数你可以查看一下jQuery的源代码，开头大概是这么写的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ = (<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">//jQuery define..</span></span><br><span class="line">    <span class="keyword">return</span> jQuery;</span><br><span class="line">&#125;)(<span class="variable language_">window</span>,<span class="literal">undefined</span>);</span><br></pre></td></tr></table></figure>
-
-<p>用$这个特殊符号做为框架标识的也不止jQuery，其它也有不少的，很早的时候有人喜欢把document.getElementById这个函数封装在$这个函数里以方便调用。<br>————————————————<br>版权声明：本文为CSDN博主「Singularinty」的原创文章<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/singularinty/article/details/80901075">https://blog.csdn.net/singularinty/article/details/80901075</a></p>
-<h1 id="getjson"><a href="#getjson" class="headerlink" title="getjson"></a>getjson</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.<span class="title function_">getJSON</span>(url,data,<span class="title function_">success</span>(data,status,xhr))</span><br></pre></td></tr></table></figure>
-
-<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tiy/t.asp?f=jquery_hide_this">$(this).hide()</a></p>
-<p>演示 jQuery hide() 函数，隐藏当前的 HTML 元素。</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tiy/t.asp?f=jquery_hide_id">$(“#test”).hide()</a></p>
-<p>演示 jQuery hide() 函数，隐藏 id&#x3D;”test” 的元素。</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tiy/t.asp?f=jquery_hide_p">$(“p”).hide()</a></p>
-<p>演示 jQuery hide() 函数，隐藏所有 <p> 元素。</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tiy/t.asp?f=jquery_hide_class">$(“.test”).hide()</a></p>
-<p>演示 jQuery hide() 函数，隐藏所有 class&#x3D;”test” 的元素。oc</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -547,15 +341,15 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2020/04/26/cpp1x-5/" class="post-title-link" itemprop="url">cpp1x_5</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
               
@@ -564,13 +358,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
-                  </a>
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
             </span>
 
@@ -600,10 +392,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -616,15 +408,15 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2020/04/26/cpp1x-4/" class="post-title-link" itemprop="url">cpp1x_4</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
               
@@ -633,13 +425,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
-                  </a>
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
             </span>
 
@@ -684,10 +474,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -700,15 +490,15 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2020/04/26/cpp1x-3/" class="post-title-link" itemprop="url">cpp1x_3</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
               
@@ -717,13 +507,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
-                  </a>
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
             </span>
 
@@ -761,10 +549,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -777,15 +565,15 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2020/04/26/cpp1x-2/" class="post-title-link" itemprop="url">cpp1x_2</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
               
@@ -794,13 +582,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
-                  </a>
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
             </span>
 
@@ -872,10 +658,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -888,15 +674,15 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2020/04/26/cpp1x-1/" class="post-title-link" itemprop="url">cpp1x_1</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
               
@@ -905,13 +691,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
-                  </a>
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
             </span>
 
@@ -975,10 +759,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/c-1x/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -991,15 +775,15 @@
       <meta itemprop="name" content="JintaoChen's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2020/04/26/c-1x/" class="post-title-link" itemprop="url">c++1x</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
               
@@ -1008,13 +792,11 @@
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c++</span>
-                  </a>
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
             </span>
 
@@ -1077,7 +859,172 @@
   
   
 
-  </div>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/20/numpy%E5%87%BD%E6%95%B0%EF%BC%88%E7%83%AD%E6%9B%B4%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/20/numpy%E5%87%BD%E6%95%B0%EF%BC%88%E7%83%AD%E6%9B%B4%EF%BC%89/" class="post-title-link" itemprop="url">numpy函数（热更）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-20 11:02:11" itemprop="dateCreated datePublished" datetime="2020-03-20T11:02:11+08:00">2020-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-29 14:54:33" itemprop="dateModified" datetime="2020-03-29T14:54:33+08:00">2020-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="np-std"><a href="#np-std" class="headerlink" title="np.std()"></a>np.std()</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.std(a) <span class="comment"># 计算全局标准差  </span></span><br><span class="line"><span class="number">1.1180339887498949</span>  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.std(a, axis=<span class="number">0</span>) <span class="comment"># axis=0计算每一列的标准差  </span></span><br><span class="line">array([ <span class="number">1.</span>,  <span class="number">1.</span>])  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.std(a, axis=<span class="number">1</span>) <span class="comment"># 计算每一行的标准差  </span></span><br><span class="line">array([ <span class="number">0.5</span>,  <span class="number">0.5</span>])</span><br></pre></td></tr></table></figure>
+
+<p>注意还有第三个参数ddof，应该在数据量较小时指定为1.</p>
+<blockquote>
+<p>ddof : int, optional<br> Means Delta Degrees of Freedom. The divisor used in calculations is N -  ddof, where N represents the number of elements. By default ddof is  zero.</p>
+</blockquote>
+<h1 id="np-where"><a href="#np-where" class="headerlink" title="np.where()"></a>np.where()</h1><p><strong>numpy.where()</strong> 有两种用法：</p>
+<h3 id="1-np-where-condition-x-y"><a href="#1-np-where-condition-x-y" class="headerlink" title="1. np.where(condition, x, y)"></a>1. np.where(condition, x, y)</h3><p>满足条件(condition)，输出x，不满足输出y。</p>
+<p> 如果是一维数组，相当于<code>[xv if c else yv for (c,xv,yv) in zip(condition,x,y)]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>aa = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(aa,<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line">array([-<span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>])  <span class="comment"># 0为False，所以第一个输出-1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(aa &gt; <span class="number">5</span>,<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line">array([-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where([[<span class="literal">True</span>,<span class="literal">False</span>], [<span class="literal">True</span>,<span class="literal">True</span>]],    <span class="comment"># 官网上的例子</span></span><br><span class="line">			 [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>]],</span><br><span class="line">             [[<span class="number">9</span>,<span class="number">8</span>], [<span class="number">7</span>,<span class="number">6</span>]])</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">8</span>],</span><br><span class="line">	   [<span class="number">3</span>, <span class="number">4</span>]])</span><br></pre></td></tr></table></figure>
+
+<p>上面这个例子的条件为<code>[[True,False], [True,False]]</code>，分别对应最后输出结果的四个值。第一个值从<code>[1,9]</code>中选，因为条件为True，所以是选1。第二个值从<code>[2,8]</code>中选，因为条件为False，所以选8，后面以此类推。类似的问题可以再看个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where([[a &gt; <span class="number">5</span>,a &lt; <span class="number">5</span>], [a == <span class="number">10</span>,a == <span class="number">7</span>]],</span><br><span class="line">             [[<span class="string">&quot;chosen&quot;</span>,<span class="string">&quot;not chosen&quot;</span>], [<span class="string">&quot;chosen&quot;</span>,<span class="string">&quot;not chosen&quot;</span>]],</span><br><span class="line">             [[<span class="string">&quot;not chosen&quot;</span>,<span class="string">&quot;chosen&quot;</span>], [<span class="string">&quot;not chosen&quot;</span>,<span class="string">&quot;chosen&quot;</span>]])</span><br><span class="line"></span><br><span class="line">array([[<span class="string">&#x27;chosen&#x27;</span>, <span class="string">&#x27;chosen&#x27;</span>],</span><br><span class="line">       [<span class="string">&#x27;chosen&#x27;</span>, <span class="string">&#x27;chosen&#x27;</span>]], dtype=<span class="string">&#x27;&lt;U10&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2-np-where-condition"><a href="#2-np-where-condition" class="headerlink" title="2. np.where(condition)"></a>2. np.where(condition)</h3><p>只有条件 (condition)，没有x和y，则输出满足条件 (即非0) 元素的坐标 (等价于<a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.nonzero.html#numpy.nonzero">numpy.nonzero</a>)。这里的坐标以tuple的形式给出，通常原数组有多少维，输出的tuple中就包含几个数组，分别对应符合条件元素的各维坐标。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(a &gt; <span class="number">5</span>)				<span class="comment"># 返回索引</span></span><br><span class="line">(array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]),)   </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[np.where(a &gt; <span class="number">5</span>)]  			<span class="comment"># 等价于 a[a&gt;5]</span></span><br><span class="line">array([ <span class="number">6</span>,  <span class="number">8</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where([[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">1</span>]), array([<span class="number">1</span>, <span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+
+<p>上面这个例子条件中<code>[[0,1],[1,0]]</code>的真值为两个1，各自的第一维坐标为<code>[0,1]</code>，第二维坐标为<code>[1,0]</code> 。</p>
+<p> 下面看个复杂点的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.arange(<span class="number">27</span>).reshape(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>],</span><br><span class="line">        [ <span class="number">3</span>,  <span class="number">4</span>,  <span class="number">5</span>],</span><br><span class="line">        [ <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>]],</span><br><span class="line"></span><br><span class="line">       [[ <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],</span><br><span class="line">        [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>],</span><br><span class="line">        [<span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>]],</span><br><span class="line"></span><br><span class="line">       [[<span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>],</span><br><span class="line">        [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>],</span><br><span class="line">        [<span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>]]])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(a &gt; <span class="number">5</span>)</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>]),</span><br><span class="line"> array([<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>]),</span><br><span class="line"> array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 符合条件的元素为</span></span><br><span class="line">	   [ <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>]],</span><br><span class="line"></span><br><span class="line">      [[ <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],</span><br><span class="line">       [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>],</span><br><span class="line">       [<span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>]],</span><br><span class="line"></span><br><span class="line">      [[<span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>],</span><br><span class="line">       [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>],</span><br><span class="line">       [<span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>]]]</span><br></pre></td></tr></table></figure>
+
+<p>所以np.where会输出每个元素的对应的坐标，因为原数组有三维，所以tuple中有三个数组。</p>
+<h1 id="np-mean"><a href="#np-mean" class="headerlink" title="np.mean()"></a>np.mean()</h1><p>mean()函数功能：求取均值</p>
+<p>经常操作的参数为axis，以m * n矩阵举例：</p>
+<p>axis 不设置值，对 m*n 个数求均值，返回一个实数</p>
+<p>axis &#x3D; 0：压缩行，对各列求均值，返回 1* n 矩阵</p>
+<p>axis &#x3D;1 ：压缩列，对各行求均值，返回 m *1 矩阵</p>
+<h1 id="np-shape"><a href="#np-shape" class="headerlink" title="np.shape()"></a>np.shape()</h1><p>返回一个元组（x,y）表示是x*y的矩阵。</p>
+<h1 id="np-random-permutation（）"><a href="#np-random-permutation（）" class="headerlink" title="np.random.permutation（）"></a>np.random.permutation（）</h1><p>随机排序</p>
+<h1 id="np-delete"><a href="#np-delete" class="headerlink" title="np.delete()"></a>np.delete()</h1><p>1.numpy.delete(arr,obj,axis&#x3D;None)<br>arr:输入向量<br>obj:表明哪一个子向量应该被移除。可以为整数或一个int型的向量<br>axis:表明删除哪个轴的子向量，若默认，则返回一个被拉平的向量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">a = np.array(np.arange(12).reshape(3,4))</span><br><span class="line">a</span><br><span class="line">Out[301]: </span><br><span class="line">array([[ 0,  1,  2,  3],</span><br><span class="line">       [ 4,  5,  6,  7],</span><br><span class="line">       [ 8,  9, 10, 11]])</span><br><span class="line">np.delete(a,1,0)</span><br><span class="line">Out[302]: </span><br><span class="line">array([[ 0,  1,  2,  3],</span><br><span class="line">       [ 8,  9, 10, 11]])</span><br><span class="line">np.delete(a,1,1)</span><br><span class="line">Out[303]: </span><br><span class="line">array([[ 0,  2,  3],</span><br><span class="line">       [ 4,  6,  7],</span><br><span class="line">       [ 8, 10, 11]])</span><br><span class="line">np.delete(a,[0,1],1)</span><br><span class="line">Out[304]: </span><br><span class="line">array([[ 2,  3],</span><br><span class="line">       [ 6,  7],</span><br><span class="line">       [10, 11]])</span><br><span class="line">np.delete(a,np.s_[::2],1)</span><br><span class="line">Out[306]: </span><br><span class="line">array([[ 1,  3],</span><br><span class="line">       [ 5,  7],</span><br><span class="line">       [ 9, 11]])</span><br><span class="line">注释：np.delete不能删除元素，只能删除向量，</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/03/04/listening-and-note-taking-skills/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/04/listening-and-note-taking-skills/" class="post-title-link" itemprop="url">listening and note-taking skills</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-04 08:40:49" itemprop="dateCreated datePublished" datetime="2020-03-04T08:40:49+08:00">2020-03-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1091,7 +1038,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -1147,19 +1094,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-          
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1181,19 +1127,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">JintaoChen</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v6.3.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -1242,8 +1187,6 @@
 
 
 
-
-  
 
   
 

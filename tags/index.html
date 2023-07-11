@@ -13,40 +13,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://example.com').hostname,
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
@@ -65,13 +37,14 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: false
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>tags | JintaoChen's blog
-  </title>
+</title>
   
 
 
@@ -110,17 +83,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">JintaoChen's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -128,30 +90,43 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JintaoChen's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -169,10 +144,9 @@
   
   
 
-          <div class="content">
+          <div class="content page posts-expand">
             
 
-  <div class="posts-expand">
     
     
     
@@ -195,10 +169,10 @@
       <div class="post-body">
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-              目前共计 21 个标签
+              目前共计 20 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/English/" style="font-size: 24px; color: #4f4f4f">English</a> <a href="/tags/Toefl/" style="font-size: 12px; color: #ccc">Toefl</a> <a href="/tags/blog/" style="font-size: 18px; color: #8e8e8e">blog</a> <a href="/tags/c/" style="font-size: 12px; color: #ccc">c++</a> <a href="/tags/js/" style="font-size: 12px; color: #ccc">js</a> <a href="/tags/linux/" style="font-size: 18px; color: #8e8e8e">linux</a> <a href="/tags/linux%E5%91%BD%E4%BB%A4/" style="font-size: 18px; color: #8e8e8e">linux命令</a> <a href="/tags/numpy/" style="font-size: 12px; color: #ccc">numpy</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/tags/review/" style="font-size: 12px; color: #ccc">review</a> <a href="/tags/tools/" style="font-size: 12px; color: #ccc">tools</a> <a href="/tags/vocabulary/" style="font-size: 12px; color: #ccc">vocabulary</a> <a href="/tags/%E5%85%A8%E6%96%87%E6%8A%84/" style="font-size: 12px; color: #ccc">全文抄</a> <a href="/tags/%E5%85%AC%E5%BC%8F%E7%BB%83%E4%B9%A0/" style="font-size: 12px; color: #ccc">公式练习</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 12px; color: #ccc">刷题</a> <a href="/tags/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/" style="font-size: 12px; color: #ccc">命题逻辑</a> <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" style="font-size: 12px; color: #ccc">大作业</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%A5%BC/" style="font-size: 30px; color: #111">实验楼</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 18px; color: #8e8e8e">数据结构</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 12px; color: #ccc">离散数学</a> <a href="/tags/%E7%BD%91%E5%AE%89/" style="font-size: 18px; color: #8e8e8e">网安</a>
+              <a href="/tags/English/" style="font-size: 24px; color: #4f4f4f">English</a> <a href="/tags/Toefl/" style="font-size: 12px; color: #ccc">Toefl</a> <a href="/tags/blog/" style="font-size: 18px; color: #8e8e8e">blog</a> <a href="/tags/c/" style="font-size: 12px; color: #ccc">c++</a> <a href="/tags/linux/" style="font-size: 18px; color: #8e8e8e">linux</a> <a href="/tags/linux%E5%91%BD%E4%BB%A4/" style="font-size: 18px; color: #8e8e8e">linux命令</a> <a href="/tags/numpy/" style="font-size: 12px; color: #ccc">numpy</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/tags/review/" style="font-size: 12px; color: #ccc">review</a> <a href="/tags/tools/" style="font-size: 12px; color: #ccc">tools</a> <a href="/tags/vocabulary/" style="font-size: 12px; color: #ccc">vocabulary</a> <a href="/tags/%E5%85%A8%E6%96%87%E6%8A%84/" style="font-size: 12px; color: #ccc">全文抄</a> <a href="/tags/%E5%85%AC%E5%BC%8F%E7%BB%83%E4%B9%A0/" style="font-size: 12px; color: #ccc">公式练习</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 12px; color: #ccc">刷题</a> <a href="/tags/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/" style="font-size: 12px; color: #ccc">命题逻辑</a> <a href="/tags/%E5%A4%A7%E4%BD%9C%E4%B8%9A/" style="font-size: 12px; color: #ccc">大作业</a> <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%A5%BC/" style="font-size: 30px; color: #111">实验楼</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 18px; color: #8e8e8e">数据结构</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 12px; color: #ccc">离散数学</a> <a href="/tags/%E7%BD%91%E5%AE%89/" style="font-size: 18px; color: #8e8e8e">网安</a>
             </div>
           </div>
         
@@ -212,7 +186,6 @@
     
     
     
-  </div>
 
 
           </div>
@@ -220,7 +193,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -276,19 +249,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-          
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -310,19 +282,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">JintaoChen</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v6.3.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -371,8 +342,6 @@
 
 
 
-
-  
 
   
 
