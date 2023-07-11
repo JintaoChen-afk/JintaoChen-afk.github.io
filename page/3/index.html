@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://example.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/18/pwntools%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/18/pwntools%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">pwntools笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-18 12:31:49 / Modified: 12:37:32" itemprop="dateCreated datePublished" datetime="2020-01-18T12:31:49+08:00">2020-01-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E5%AE%89/" itemprop="url" rel="index">
+                    <span itemprop="name">网安</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/18/bugku-new-%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/18/bugku-new-%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B01/" class="post-title-link" itemprop="url">bugku(new)刷题笔记1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-18 11:44:16" itemprop="dateCreated datePublished" datetime="2020-01-18T11:44:16+08:00">2020-01-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-20 13:50:19" itemprop="dateModified" datetime="2020-01-20T13:50:19+08:00">2020-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E5%AE%89/" itemprop="url" rel="index">
+                    <span itemprop="name">网安</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="题目网址："><a href="#题目网址：" class="headerlink" title="题目网址："></a>题目网址：</h5><p><a target="_blank" rel="noopener" href="https://new.bugku.com/challenges">newbugku</a></p>
+<h5 id="用户id"><a href="#用户id" class="headerlink" title="用户id:"></a>用户id:</h5><p>centuryplant</p>
+<h1 id="misc-0和1的故事"><a href="#misc-0和1的故事" class="headerlink" title="(misc) 0和1的故事"></a>(misc) 0和1的故事</h1><p>下载下来的文件是一个压缩包，解压到最后是一个文本文件：<code>flag&#123;&#125;.txt</code>,打开文件发现只有一行，显示的是<code>Flag_is_not_here</code>。</p>
+<p>用notepad打开，发现有很多空行。</p>
+<p>根据提示，将空格替换成0，替换后发现还有空格，应该是Tab。把剩下的<code>\t</code>用1替换。得到一串二进制，再转换成16进制，就是flag。</p>
+<h1 id="pwn-最简单的pwn"><a href="#pwn-最简单的pwn" class="headerlink" title="(pwn)最简单的pwn"></a>(pwn)最简单的pwn</h1><p>直接<code>nc</code> 连接，然后<code>cat</code>得到flag？</p>
+<p>我连接的时候显示<code>connection refused</code>，没法，直接抄了flag上去。</p>
+<h1 id="web-web1"><a href="#web-web1" class="headerlink" title="(web)web1"></a>(web)web1</h1><p>两个函数。</p>
+<p>第一个函数是<code>file_get_contents()</code>，作用应该是从一个<code>url</code>返回网站的数据，但<code>$b</code>只是一串没有意义的字符，所以应该返回空或者报错。</p>
+<p>第二个函数是<code>trim()</code>，作用是去除字符首尾的空白字符。</p>
+<p>本地试了一下，在本地php版本下file_get_contents()已经返回空（不是<code>NULL</code>）了，所以加参数，使网页url构造为<code>http://123.206.31.85:10001/?a=</code>即得flag。</p>
+<h1 id="web-web26"><a href="#web-web26" class="headerlink" title="(web)web26"></a>(web)web26</h1><p>这道题有点怪。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">$num=$_GET[&#x27;num&#x27;]; </span><br><span class="line">$str=$_GET[&#x27;str&#x27;]; </span><br><span class="line">show_source(__FILE__); </span><br><span class="line">if (isset($num)&amp;&amp;isset($str)) &#123; </span><br><span class="line">    if (preg_match(&#x27;/\d+/sD&#x27;,$str)) &#123; </span><br><span class="line">        echo &quot;vagetable hhhh&quot;; </span><br><span class="line">        exit(); </span><br><span class="line">    &#125; </span><br><span class="line">    $result=is_numeric($num) and is_numeric($str); </span><br><span class="line">    if ($result) &#123; </span><br><span class="line">        include &quot;flag.php&quot;; </span><br><span class="line">        echo &quot;$flag&quot;; </span><br><span class="line">    &#125; </span><br><span class="line">    else&#123; </span><br><span class="line">        echo &quot;vagetablessssss&quot;; </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>重点在于<code>is_numeric()</code>函数的否定返回是空，而不是0.</p>
+<p>我理解的题意是，<code>str</code>是一个是数字（字符），但不能出现数字。</p>
+<p>但实际上因为上面那个原因，<code>and</code> 好像没有作用一样。只要让<code>str</code>是一个字符就行了。-_-</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/14/c++%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%A8%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/14/c++%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%A8%E8%AE%BA/" class="post-title-link" itemprop="url">关于运算符重载的一些简单细节讨论</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-14 06:52:46" itemprop="dateCreated datePublished" datetime="2020-01-14T06:52:46+08:00">2020-01-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-18 11:42:41" itemprop="dateModified" datetime="2020-01-18T11:42:41+08:00">2020-01-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c-%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">c++语法</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关于运算符重载的一些简单细节讨论"><a href="#关于运算符重载的一些简单细节讨论" class="headerlink" title="关于运算符重载的一些简单细节讨论"></a>关于运算符重载的一些简单细节讨论</h1><h2 id="1-运算符重载的本质仍是函数重载"><a href="#1-运算符重载的本质仍是函数重载" class="headerlink" title="1. 运算符重载的本质仍是函数重载"></a>1. 运算符重载的本质仍是函数重载</h2><p>​	在学习的过程中，曾多次强调运算符重载的本质是函数重载，更具体地说，<strong>重载的运算符是可以用中序语法调用的成员函数或友元函数</strong>。使用中序语法，代码会更直观。但在某些情况下，使用成员函数原来的形式（<code>operator[运算符]</code>）或许更加容易理解。</p>
+<p>​	作为对比，先是一些运算符重载的例子。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 《c++覆辙录》：常见错误23</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">T</span>&#123;</span><br><span class="line">    <span class="keyword">friend</span> T <span class="keyword">operator</span>+(<span class="type">const</span> T&amp;,<span class="type">const</span> T&amp;); </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    T &amp;<span class="keyword">operator</span>=(<span class="type">const</span> T&amp;);</span><br><span class="line">    T <span class="keyword">operator</span>-();</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">T a,b;</span><br><span class="line">a=b;</span><br><span class="line">a.<span class="keyword">operator</span>=(b);</span><br></pre></td></tr></table></figure>
+
+<p>​	其中<code>a=b</code>和<code>a.operator=(b)</code>等价，而编译器在编译过程中也会将前者替换为后者，但我们直接用后者也是可以的。一般情况下，我们会选择第一种写法，也就是中序写法。</p>
+<p>​	在另外的一些情况下，可能选择后者是一种更好的选择。一个例子是派生类的复制赋值运算符调用基类的复制赋值运算符。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//《c++覆辙录》：常见错误23 （改）</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A &amp;<span class="keyword">operator</span>=(<span class="type">const</span> A&amp;)&#123;<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>: <span class="keyword">public</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B &amp;<span class="keyword">operator</span>=(<span class="type">const</span> B&amp;);</span><br><span class="line">    <span class="built_in">B</span>(<span class="type">int</span> k=<span class="number">0</span>):<span class="built_in">c</span>(k)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;cout &lt;&lt; c &lt;&lt; endl;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">B &amp; B::<span class="keyword">operator</span>=(<span class="type">const</span> B&amp;b)&#123;</span><br><span class="line">    <span class="keyword">if</span>(&amp;b != <span class="keyword">this</span>)&#123;</span><br><span class="line">        A::<span class="keyword">operator</span>=(b);</span><br><span class="line">        (*<span class="built_in">static_cast</span>&lt;A*&gt;(<span class="keyword">this</span>)) = b;</span><br><span class="line">        c = b.c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	可以明显地看到，此处调用基类A的复制赋值运算符采用成员函数的形式更为清晰，也更好写。如果要采用中序写法，要先进行类型转换，再复制赋值，即<code>(*static_cast&lt;A*&gt;(this))=b</code>的形式，会让读代码的人不易理解。	</p>
+<p>​	但令人迷惑的是中序记法与成员函数有<strong>一点本质的不同</strong>，这点也需要记一下。使用中序记法编译时会搜索包括成员函数和非成员函数的对应运算符重载，但使用成员函数记法编译时只会搜索成员函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//《c++覆辙录》：常见错误23 （改）</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X &amp;<span class="keyword">operator</span>%(<span class="type">const</span> X&amp;);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> xx):<span class="built_in">x</span>(xx)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;cout&lt;&lt;x&lt;&lt;endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">X &amp;X::<span class="keyword">operator</span>%(<span class="type">const</span> X&amp;xx)&#123;</span><br><span class="line">    x = x%xx.x;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">X &amp;<span class="keyword">operator</span>%(X&amp;xx,<span class="type">int</span> x)&#123;</span><br><span class="line">    xx.x %= x;</span><br><span class="line">    <span class="keyword">return</span> xx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">X::f</span><span class="params">()</span></span>&#123;</span><br><span class="line">    X &amp;anX = *<span class="keyword">this</span>;</span><br><span class="line">    anX % <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">operator</span>%(anX,<span class="number">11</span>); <span class="comment">//报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	上面的代码中分别有一个成员函数和一个非成员函数对<code>%</code>进行了重载。我们如果想在<code>x::f()</code>中调用非成员函数版本的重载，初步看上去，<code>anX % 11</code>和<code>operator%(ans,11)</code>应该是等价的。但实际上，在<code>anX % 11</code>这步中，编译器搜索了成员函数和非成员函数，所以能匹配到正确的函数（非成员函数）；而<code>operator%(ans,11)</code>这行代码，编译器只会搜索成员函数，所以会因为找不到匹配的函数而报错。</p>
+<h2 id="2-复合赋值与算术运算符的重载方式或顺序"><a href="#2-复合赋值与算术运算符的重载方式或顺序" class="headerlink" title="2.复合赋值与算术运算符的重载方式或顺序"></a>2.复合赋值与算术运算符的重载方式或顺序</h2><p>对于类似（<code>+=</code>）的复合赋值运算符和类似（<code>+</code>）的算术运算符，我们可以有三种重载方式或顺序。</p>
+<ol>
+<li>重载符合赋值运算符后，用重载的复合赋值运算符重载算术运算符。</li>
+<li>重载算术运算符后，用重载的算术运算符重载复合赋值运算符。</li>
+<li>独立重载两个运算符。</li>
+</ol>
+<p>先来看前两个方式，我认为这两种方式的显著优点是实现了<strong>代码重用</strong>。在重载完一个函数后，确实都能让第二个重载的运算符更易读。</p>
+<p>《primer c++》 提到，如果类同时定义了算术运算符和相关的复合赋值运算符，则通常情况下应该使用复合赋值来实现算术运算符。下面将在简单情况下讨论一般情况下这句话的合理性。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">T</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">T</span>(<span class="type">int</span> va=<span class="number">0</span>):<span class="built_in">val</span>(va)&#123;cout &lt;&lt; <span class="string">&quot;constructing &quot;</span> &lt;&lt;val&lt;&lt;endl;&#125;</span><br><span class="line">    <span class="built_in">T</span>(<span class="type">const</span> T &amp;b)&#123;val=b.val;cout &lt;&lt; <span class="string">&quot;copying &quot;</span>&lt;&lt;val&lt;&lt;endl;&#125;</span><br><span class="line">    T <span class="keyword">operator</span>+(<span class="type">const</span> T&amp;)<span class="type">const</span>;</span><br><span class="line">    T &amp;<span class="keyword">operator</span>+=(<span class="type">const</span> T&amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T a = <span class="number">1</span>;</span><br><span class="line">    T b = <span class="number">2</span>;</span><br><span class="line">    T c = a+b;</span><br><span class="line">    a+=b;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 对于上面的类和主函数，考察在执行一套<code>+</code>和<code>+=</code>运算后，各种方式一共调用的构造或拷贝构造函数次数。由于<code>Code::Blocks</code>的编译器开启了返回值优化，且两种情况函数<code>return</code>时情况相同，所以下面的结果中，函数<code>return</code>一个临时对象时不会调用拷贝构造函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种方式</span></span><br><span class="line">T &amp;T::<span class="keyword">operator</span>+=(<span class="type">const</span> T&amp;b)&#123;</span><br><span class="line">    val += b.val;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">T T::<span class="keyword">operator</span>+(<span class="type">const</span> T&amp;b)<span class="type">const</span>&#123;</span><br><span class="line">    T _copy = *<span class="keyword">this</span>; <span class="comment">//调用拷贝构造函数</span></span><br><span class="line">    _copy += b;</span><br><span class="line">    <span class="keyword">return</span> _copy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">constructing <span class="number">1</span></span><br><span class="line">constructing <span class="number">2</span></span><br><span class="line">copying <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第二种方式</span></span><br><span class="line">T T::<span class="keyword">operator</span>+(<span class="type">const</span> T&amp;b)<span class="type">const</span>&#123;</span><br><span class="line">    <span class="comment">//return T(val+b.val); //调用构造函数，另一种写法</span></span><br><span class="line">    T _copy = *<span class="keyword">this</span>; <span class="comment">//调用拷贝构造函数</span></span><br><span class="line">    _copy.val += b.val;</span><br><span class="line">    <span class="keyword">return</span> _copy;</span><br><span class="line">&#125;</span><br><span class="line">T &amp;T::<span class="keyword">operator</span>+=(<span class="type">const</span> T&amp;b)&#123;</span><br><span class="line">    *<span class="keyword">this</span> = *<span class="keyword">this</span> + b; <span class="comment">// 调用构造函数或拷贝构造函数</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">constructing <span class="number">1</span></span><br><span class="line">constructing <span class="number">2</span></span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">copying <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>从结果看到，第一种情况确实比第二种节约了步骤成本。进一步分析来看，<code>+</code>算术运算符的重载，无论如何都将调用一次构造函数或拷贝构造函数。所以成本的差异体现在<code>+=</code>的重载方式上，第一种方式由于是直接重载<code>+=</code>，过程中不会调用任何构造函数，所以节约了一次构造成本。</p>
+<p>推广到更复杂的情况。如果我们的目的是实现代码的复用及保证一定的代码可读性，第一种方式是首选方式。</p>
+<p>然后需要将第三种方式与前面两种进行比较。第一种方式与第三种方式在例子给出的简单情况中，只有一行代码不同，即<code>+</code>的重载中：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">第一种方式：</span><br><span class="line">    _copy += b;</span><br><span class="line"></span><br><span class="line">第三种方式：</span><br><span class="line">    _copy.val += b.val;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>显然，第一种方式在调用<code>+=</code>重载的过程中，会有额外的拷贝或移动开销，虽然在编译器包括返回值优化的各种优化下，这种开销减小，但不是不存在。所以在更复杂的情况下，为了保证效率，应该采用第三种方式，将各个运算符独立重载更优。</p>
+<p>简单地总结一下：</p>
+<p>在简单的模拟情况下，采用第一种方式；而在更复杂的模拟情况下，第三种方式更合适。</p>
+<h2 id="3-临时对象与编译器的优化"><a href="#3-临时对象与编译器的优化" class="headerlink" title="3. 临时对象与编译器的优化"></a>3. 临时对象与编译器的优化</h2><p>问题三中我将要讨论两种优化，返回值优化(RVO)和复制省略(copy elision)。</p>
+<p>这个问题可能和标题有点脱节，但在类似第二个问题的运算符重载的过程中，不可避免地要<code>return</code>一个临时对象，我们也不可避免地像第二个问题一样要讨论它的开销成本。这个问题也作为第二个问题的补充。</p>
+<p>我们考察下面代码（我们可以通过编译时加参数<code>-fno-elide-constructors</code>关闭这两种优化） ：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">T</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">T</span>(<span class="type">int</span> va=<span class="number">0</span>):<span class="built_in">val</span>(va)&#123;cout &lt;&lt; <span class="string">&quot;constructing &quot;</span> &lt;&lt;val&lt;&lt;endl;&#125;</span><br><span class="line">    <span class="built_in">T</span>(<span class="type">const</span> T &amp;b)&#123;val=b.val;cout &lt;&lt; <span class="string">&quot;copying &quot;</span>&lt;&lt;val&lt;&lt;endl;&#125;</span><br><span class="line">    T <span class="keyword">operator</span>+(<span class="type">const</span> T&amp;)<span class="type">const</span>;</span><br><span class="line">    T &amp;<span class="keyword">operator</span>+=(<span class="type">const</span> T&amp;);</span><br><span class="line">    ~<span class="built_in">T</span>()&#123;cout &lt;&lt; <span class="string">&quot;destructing &quot;</span>&lt;&lt;val&lt;&lt;endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">T T::<span class="keyword">operator</span>+(<span class="type">const</span> T&amp;b)<span class="type">const</span>&#123;</span><br><span class="line">    T _copy = *<span class="keyword">this</span>; <span class="comment">//调用拷贝构造函数</span></span><br><span class="line">    _copy += b;</span><br><span class="line">    <span class="keyword">return</span> _copy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T a = <span class="number">1</span>;</span><br><span class="line">    T b = <span class="number">2</span>;</span><br><span class="line">    T c = a+b;</span><br><span class="line">   	cout &lt;&lt; <span class="string">&quot;over&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">关闭优化以后的输出：</span><br><span class="line">constructing <span class="number">1</span></span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">destructing <span class="number">1</span></span><br><span class="line">constructing <span class="number">2</span></span><br><span class="line">copying <span class="number">2</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">copying <span class="number">3</span></span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">copying <span class="number">3</span></span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">over</span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line">destructing <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>先看输出的后半段，在编译器没有进行返回值优化的情况下，我们学过，<code>return _copy</code>时，因为<code>_copy</code>是一个临时对象，会先调用拷贝构造函数用<code>_copy</code>拷贝构造出另一个临时对象，这个临时对象时没有名字的，我们不妨假设为<code>copy1</code>,然后<code>a.operator+()</code>函数退出，<code>_copy</code>被析构，于是总体上说，重载函数返回的是一个没有名字的临时对象。由结果来看，<strong>这个临时对象在完成c的拷贝构造后就析构了</strong>；从拷贝构造函数的参数讲，这个临时对象是有地址的。</p>
+<p>更具体地说，在不开启返回值优化时，函数被编译器处理后的（伪）代码大概如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">T T::<span class="keyword">operator</span>+(T &amp;copy1,<span class="type">const</span> T&amp;b)<span class="type">const</span>&#123;</span><br><span class="line">    T _copy(*<span class="keyword">this</span>); <span class="comment">//调用拷贝构造函数</span></span><br><span class="line">    _copy += b;</span><br><span class="line">    copy1.T::<span class="built_in">T</span>(_copy); <span class="comment">//调用拷贝构造函数</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    _copy.T::~<span class="built_in">T</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译器会引入参数<code>T &amp;copy1</code>,该参数用来引用函数要返回的临时对象，更进一步可以看到<code>copy1</code>的<strong>内存地址</strong>和<strong>对应类型</strong>在定义前就已经确定。</p>
+<p>所以没有优化时后半段输出的解释如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">copying <span class="number">1</span> </span><br><span class="line">copying <span class="number">3</span>       <span class="comment">//copy1被拷贝构造</span></span><br><span class="line">destructing <span class="number">3</span>   <span class="comment">//_copy被析构</span></span><br><span class="line">copying <span class="number">3</span>       <span class="comment">//c被拷贝构造</span></span><br><span class="line">destructing <span class="number">3</span>	<span class="comment">//copy1被析构</span></span><br><span class="line">over</span><br><span class="line">destructing <span class="number">3</span>   <span class="comment">//c被析构</span></span><br><span class="line">destructing <span class="number">2</span>	<span class="comment">//b被析构</span></span><br><span class="line">destructing <span class="number">1</span>	<span class="comment">//a被析构</span></span><br></pre></td></tr></table></figure>
+
+<p>而开启返回值优化后，后半段输出如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">开启优化时输出：</span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">over</span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line">destructing <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>要具体解释要先理解返回值优化的原理。</p>
+<p>**返回值优化(RVO)**发生在当编译器识别出了 <code>return</code>后的返回对象类型和函数的返回对象的类型一致时。此时编译器会直接将而这关联在一起，或者说是将<code>return</code>后的返回对象替换为函数的返回对象，这里函数的返回对象是匿名对象，也就是我们这里的<code>copy1</code>。</p>
+<p>优化后编译器处理后的代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">T T::<span class="keyword">operator</span>+(T &amp;copy1,<span class="type">const</span> T&amp;b)<span class="type">const</span>&#123;</span><br><span class="line">    copy1.T::<span class="built_in">T</span>(*<span class="keyword">this</span>); <span class="comment">//调用拷贝构造函数</span></span><br><span class="line">    copy1 += b;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但此时仍不能解释开启优化后的输出。在查阅维基百科时了解到，在不同的编译器版本或编译设置下，RVO的程度可能不同，也可能是用了其它类型的优化。而通过更深的查找资料，我<strong>猜想</strong>这里使用了<code>copy elision</code>优化。</p>
+<p>此时将引入<code>copy elision</code>优化。</p>
+<p><code>copy elision</code>优化是指当用一个临时<code>class</code>对象去初始化同类型的对象时，复制初始化通常优化为直接初始化。</p>
+<p>我没有查到具体怎么实现优化的，但<strong>可能</strong>是下面的方式。</p>
+<p><code>return</code>后的返回对象会直接与被初始化的对象关联，或者说<code>return</code>后的返回对象被直接替换成了要初始化的对象，这里是<code>c</code>.</p>
+<p>所以最终优化后函数(伪)代码应该如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">T T::<span class="keyword">operator</span>+(T &amp;c,<span class="type">const</span> T&amp;b)<span class="type">const</span>&#123;</span><br><span class="line">    c.T::<span class="built_in">T</span>(*<span class="keyword">this</span>); <span class="comment">//调用拷贝构造函数</span></span><br><span class="line">    c += b;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以优化开启后后半段输出的解释如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">开启优化时输出：</span><br><span class="line">copying <span class="number">1</span>       <span class="comment">//c被拷贝构造</span></span><br><span class="line">over</span><br><span class="line">destructing <span class="number">3</span>	<span class="comment">//c被析构</span></span><br><span class="line">destructing <span class="number">2</span>	</span><br><span class="line">destructing <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>为了验证RVO，我也做了非初始化情况的验证。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">将</span><br><span class="line">T c = a+b;</span><br><span class="line">改为</span><br><span class="line">T c;</span><br><span class="line">c = a+b;</span><br><span class="line"></span><br><span class="line">关闭返回值优化后的输出:</span><br><span class="line">constructing <span class="number">1</span></span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">destructing <span class="number">1</span></span><br><span class="line">constructing <span class="number">2</span></span><br><span class="line">copying <span class="number">2</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line">constructing <span class="number">0</span></span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">copying <span class="number">3</span></span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">over</span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line">destructing <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">开启返回值优化时:</span><br><span class="line">constructing <span class="number">1</span></span><br><span class="line">constructing <span class="number">2</span></span><br><span class="line">constructing <span class="number">0</span></span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">over</span><br><span class="line">destructing <span class="number">3</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line">destructing <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>此时的后半段输出与返回值优化的伪代码完全应证，即：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">constructing <span class="number">0</span> <span class="comment">//c被构造</span></span><br><span class="line">copying <span class="number">1</span>      <span class="comment">//copy1被构造</span></span><br><span class="line">destructing <span class="number">3</span>  <span class="comment">//在复制赋值后copy1被析构</span></span><br><span class="line">over</span><br><span class="line">destructing <span class="number">3</span>  <span class="comment">//c被析构</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line">destructing <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>而凭借<code>copy elision</code>的优化原理，我们能解释前半段代码。即：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">优化前：</span><br><span class="line">constructing <span class="number">1</span></span><br><span class="line">copying <span class="number">1</span></span><br><span class="line">destructing <span class="number">1</span></span><br><span class="line">constructing <span class="number">2</span></span><br><span class="line">copying <span class="number">2</span></span><br><span class="line">destructing <span class="number">2</span></span><br><span class="line"></span><br><span class="line">优化后：</span><br><span class="line">constructing <span class="number">1</span></span><br><span class="line">constructing <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p><code>T a = 1;</code>和 <code>T b = 2;</code>中。1和2被转换为临时的类型为<code>T</code>的对象，触发<code>copy elision</code>优化，拷贝构造被优化为直接构造。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>c++是一个历史悠久的语言，要掌握c++需要不断地练习与查阅，最好是官方文档。国内的博客在近些年来内容水分严重，不尽如人意。在查找资料的过程中，感觉最有用的是维基百科，官方文档和类似《primer c++》之类的书籍，但因为自己查找资料能力的不足，过分相信博客内容，在过程中走了很多弯路，望引以为戒。</p>
+<hr>
+<h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p>[1]Stanley B. Lippman, Josée Lajoie, Barbara E. Moo. C++ Primer,5E[M]. 北京：电子工业出版社，2013</p>
+<p>[2]Stephen C. Dewhurst. C++覆辙录[M]. 北京：人民邮电出版社，2016</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/04/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/04/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-04 11:29:00 / Modified: 08:19:44" itemprop="dateCreated datePublished" datetime="2020-01-04T11:29:00+08:00">2020-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9D%82/" itemprop="url" rel="index">
+                    <span itemprop="name">杂</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>​		我的博客又又又重启了，看下这下能坚持多久吧。</p>
+<p>blog building tips:</p>
+<ol>
+<li>注意CNAME的创建</li>
+<li>现在  <code>.io</code> 文件夹还不知道咋用</li>
+<li>&#x2F;layout&#x2F;_partial&#x2F;footer.ejs 里面删除了busuanzi，写法是<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_container_site_pv&quot;</span>&gt;</span>不蒜子告之   阁下是第<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_value_site_pv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>个访客<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>删除评论功能，把所有gitment的东西全删了，最隐蔽的是<code>article.ejs</code>里，找了好久。</li>
+<li>更换图片，头标</li>
+<li>网站模板（antiquity)里有些莫名奇妙的东西。</li>
+<li>最后还是用回了next。。。 要找一个又好看又支持latex的模板真的难，有时间自己<del>抄一个</del>写一个吧。next好大</li>
+<li>语言不知道为什么变成了德语，没事，把德语删掉就好了</li>
+<li>先这样吧，以后有时间再美化。</li>
+</ol>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/04/%E5%A4%A7%E5%AD%A6%E5%8C%96%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/04/%E5%A4%A7%E5%AD%A6%E5%8C%96%E5%AD%A6%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">大学化学期末复习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-04 03:44:47" itemprop="dateCreated datePublished" datetime="2020-01-04T03:44:47+08:00">2020-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-05 06:51:51" itemprop="dateModified" datetime="2020-01-05T06:51:51+08:00">2020-01-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E5%AD%A6%E5%8C%96%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">大学化学</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>期末考试章节：5，11，12，13，14</p>
+<p>题型：1.选择（单选）</p>
+<p>​            2.填空</p>
+<p>​            3.简答和计算：先写上公式，再计算，结论</p>
+<p>带计算器：</p>
+<h2 id="第五章：-相平衡热力学（依数性）"><a href="#第五章：-相平衡热力学（依数性）" class="headerlink" title="第五章： 相平衡热力学（依数性）"></a>第五章： 相平衡热力学（依数性）</h2><h3 id="水"><a href="#水" class="headerlink" title="水"></a>水</h3><p>水密度反常：4℃时密度最大</p>
+<h3 id="蒸气压"><a href="#蒸气压" class="headerlink" title="蒸气压"></a>蒸气压</h3><h4 id="物质的三态："><a href="#物质的三态：" class="headerlink" title="物质的三态："></a>物质的三态：</h4><p>气态： 无序、热运动剧烈</p>
+<p>液态： 短程有序，长程无序</p>
+<p>固态： 对于晶体，有序</p>
+<h4 id="蒸气压及饱和蒸气压"><a href="#蒸气压及饱和蒸气压" class="headerlink" title="蒸气压及饱和蒸气压"></a>蒸气压及饱和蒸气压</h4><p>蒸气压: 某温度下,<strong>液体表面气体分子</strong>形成的压强</p>
+<p>饱和蒸气压:封闭容器中，某温度下，冷凝的速度等于挥发的速度时<strong>液体表面气体分子</strong>形成的压强，也叫平衡蒸气压。（是蒸气压的一个情况）</p>
+<h4 id="影响平衡蒸气压大小的因素："><a href="#影响平衡蒸气压大小的因素：" class="headerlink" title="影响平衡蒸气压大小的因素："></a>影响平衡蒸气压大小的因素：</h4><ul>
+<li><p>液体种类</p>
+</li>
+<li><p>温度： 温度升高，蒸气压变大</p>
+</li>
+</ul>
+<h4 id="洗过的衣服为什么会干："><a href="#洗过的衣服为什么会干：" class="headerlink" title="洗过的衣服为什么会干："></a>洗过的衣服为什么会干：</h4><p>原理： 液体的蒸汽在整个气相混合物中的分压等于该液体的平衡(饱和)蒸气压时，才 能达到挥发和凝聚平衡。否则就挥发速度大于凝聚速度。</p>
+<p>解释： 一定温度以上，空气之中<strong>水蒸汽的分压</strong>小于这个温度下<strong>水的饱和蒸气压</strong>，所以衣服中的水分不断蒸发。</p>
+<p><strong>遗留问题： 衣服能不能完全干？</strong></p>
+<h4 id="哈气问题"><a href="#哈气问题" class="headerlink" title="哈气问题"></a>哈气问题</h4><p>解释： 哈出的气体中水蒸气的分压大于该温度下水的饱和蒸气压，水蒸气在玻璃（？）上凝结（？）。</p>
+<h3 id="拉乌尔定律"><a href="#拉乌尔定律" class="headerlink" title="拉乌尔定律"></a>拉乌尔定律</h3><p>在一定温度下，难挥发非电解质稀溶液的蒸气压下降与溶液的质量摩尔浓度成正比。即只取决于单位质量（kg)溶剂中所含溶质的质点数目，而与溶质的本性无关。</p>
+<p>$$<br>p&#x3D;p^{\Theta}x_{A},x_{A}表示溶剂的摩尔分数<br>$$</p>
+<p>$$<br>\Delta p&#x3D;\frac{n_{B}}{n_{A}+n_{B}}p^{\Theta}\ \Delta p: 溶液的蒸气压下降\ p^{\Theta}: 纯溶剂的蒸气压\ n_{A}: 溶剂的物质的量\ n_{B}: 溶质的物质的量<br>$$</p>
+<h3 id="依数性"><a href="#依数性" class="headerlink" title="依数性"></a>依数性</h3><h4 id="沸腾，凝固"><a href="#沸腾，凝固" class="headerlink" title="沸腾，凝固"></a>沸腾，凝固</h4><p>沸腾发生在水的内部，而蒸发是在水的表面。</p>
+<p>沸腾条件：当液体被加热到某一温度时，液体的蒸气压等于外压（大气压）</p>
+<p>凝固点（freeze）的本质：<br>$$<br>当T&#x3D;T_{f}时，固体和液体的平衡系统的压强与外压相等<br>$$<br>沸点（boiling）的本质：<br>$$<br>当T&#x3D;T_{b}时，液体的蒸汽压与外压相等<br>$$</p>
+<h4 id="超临界现象"><a href="#超临界现象" class="headerlink" title="超临界现象"></a>超临界现象</h4><p>超临界流体的特点：</p>
+<ul>
+<li><p>不具备可压缩性（液体）</p>
+</li>
+<li><p>会充满整个容器（气体）</p>
+</li>
+</ul>
+<h4 id="浓度的常见单位"><a href="#浓度的常见单位" class="headerlink" title="浓度的常见单位"></a>浓度的常见单位</h4><ul>
+<li>质量分数</li>
+<li>体积分数</li>
+<li>摩尔浓度</li>
+<li>质量摩尔浓度</li>
+<li>摩尔分数和摩尔百分数</li>
+</ul>
+<p>$$<br>ppm(10^{-6}),ppb(10^{-9}),ppt<br>$$</p>
+<h4 id="溶液的分类和特征："><a href="#溶液的分类和特征：" class="headerlink" title="溶液的分类和特征："></a>溶液的分类和特征：</h4><ul>
+<li>真溶液——10-9 m，均相</li>
+<li>胶体——1~100*10-9 m，均相</li>
+<li>悬浊液——&gt;10-7 m，多相，重力下沉。</li>
+</ul>
+<h4 id="难挥发的非电解质的稀溶液的依数性："><a href="#难挥发的非电解质的稀溶液的依数性：" class="headerlink" title="难挥发的非电解质的稀溶液的依数性："></a>难挥发的非电解质的稀溶液的依数性：</h4><p>溶液的某些性质主要取决于所含溶质的<strong>粒子数</strong>而与溶质的本性无关：</p>
+<ul>
+<li>蒸气压下降 </li>
+<li>沸点升高 </li>
+<li>凝固点下降</li>
+<li>渗透压</li>
+</ul>
+<p>稀溶液的凝固点降低，沸点升高<br>$$<br>\Delta T_{沸}&#x3D;K_{沸}m\ \Delta T_{凝}&#x3D;K_{凝}m\ m:溶液的质量摩尔浓度（1000g溶剂中所含溶质的物质的量）<br>$$</p>
+<h3 id="渗透压"><a href="#渗透压" class="headerlink" title="渗透压"></a>渗透压</h3><h4 id="范托夫方程："><a href="#范托夫方程：" class="headerlink" title="范托夫方程："></a>范托夫方程：</h4><p>$$<br>\Pi V&#x3D;nRT\ 或\ \Pi&#x3D;cRT,\Pi 的单位是kPa<br>$$</p>
+<h3 id="电解质溶液的依数性"><a href="#电解质溶液的依数性" class="headerlink" title="电解质溶液的依数性"></a>电解质溶液的依数性</h3><p>$$<br>\Delta T_{b}&#x3D;K_{b}mi\ \Delta T_{f}&#x3D;K_{f}mi\ \pi&#x3D;icRT\ 电离度（解离度）&#x3D; 有效浓度（表观解离度）\alpha \ \alpha&#x3D;\gamma c\<br>$$</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>
