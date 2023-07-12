@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="最近在做ncnn的跨平台编译，之前虽然一直在用make，cmake，但一直没有系统学习和整理过编译工具相关的东西，遂记录一下。 cmake，make粗略关系 cmake根据CMakeLists.txt生成makefile文件给make用。 make相当于批处理版本的gcc 使用cmake创建makefile。根据编译选项能够方便跨平台，跨工具编译。不同平台，不同工具make遵循的规范和标准">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ncnn的跨平台编译">
+<meta property="og:url" content="http://example.com/2023/07/12/ncnn%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/index.html">
+<meta property="og:site_name" content="JintaoChen&#39;s blog">
+<meta property="og:description" content="最近在做ncnn的跨平台编译，之前虽然一直在用make，cmake，但一直没有系统学习和整理过编译工具相关的东西，遂记录一下。 cmake，make粗略关系 cmake根据CMakeLists.txt生成makefile文件给make用。 make相当于批处理版本的gcc 使用cmake创建makefile。根据编译选项能够方便跨平台，跨工具编译。不同平台，不同工具make遵循的规范和标准">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-12T08:26:15.000Z">
+<meta property="article:modified_time" content="2023-07-12T11:36:14.152Z">
+<meta property="article:author" content="JintaoChen">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="编译">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/07/12/ncnn%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ncnn的跨平台编译 | JintaoChen's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JintaoChen's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/12/ncnn%E7%9A%84%E8%B7%A8%E5%B9%B3%E5%8F%B0%E7%BC%96%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ncnn的跨平台编译
+        </h1>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-07-12 16:26:15 / Modified: 19:36:14" itemprop="dateCreated datePublished" datetime="2023-07-12T16:26:15+08:00">2023-07-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近在做ncnn的跨平台编译，之前虽然一直在用make，cmake，但一直没有系统学习和整理过编译工具相关的东西，遂记录一下。</p>
+<h2 id="cmakemake粗略关系">cmake，make粗略关系</h2>
+<p>cmake根据CMakeLists.txt生成makefile文件给make用。</p>
+<p>make相当于批处理版本的gcc</p>
+<p>使用cmake创建makefile。根据编译选项能够方便跨平台，跨工具编译。不同平台，不同工具make遵循的规范和标准不同。</p>
+<h2 id="cmakelists.txt编写">CMakeLists.txt编写</h2>
+<h3 id="指定cmake版本">指定cmake版本</h3>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION X.X)</span><br></pre></td></tr></table></figure>
+<h3 id="项目名称">项目名称</h3>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">project</span>(XX)</span><br></pre></td></tr></table></figure>
+<h3 id="环境变量自建变量">环境变量/自建变量</h3>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CMAKE_C_COMPILER：指定C编译器</span><br><span class="line">CMAKE_CXX_COMPILER：指定C++编译器</span><br><span class="line">CMAKE_C_FLAGS：编译C文件时的选项，如-g；也可以通过<span class="keyword">add_definitions</span>添加编译选项</span><br><span class="line">EXECUTABLE_OUTPUT_PATH：可执行文件的存放路径</span><br><span class="line">LIBRARY_OUTPUT_PATH：库文件路径</span><br><span class="line">CMAKE_BUILD_TYPE:：build 的类型(Debug, Release, ...)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(SRC_LIST main.c hello.c)</span><br></pre></td></tr></table></figure>
+<h3 id="链接库文件搜索目录">链接库文件搜索目录</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">link_directories(directory1 directory2 ...)</span><br></pre></td></tr></table></figure>
+<h3
+id="可执行文件要链接的库文件的名称">可执行文件要链接的库文件的名称</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TARGET_LINK_LIBRARIES(PROJECT_NAME libname.so)</span><br></pre></td></tr></table></figure>
+<h3 id="头文件目录">头文件目录</h3>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INCLUDE_DIRECTORIES</span>( </span><br><span class="line"> dir_name1</span><br><span class="line"> dir_name2</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="源文件目录">源文件目录</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AUX_SOURCE_DIRECTORY(src DIR_SRCS)</span><br></pre></td></tr></table></figure>
+<h3 id="编译结果可执行文件">编译结果可执行文件</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD_EXECUTABLE(PROJECT_NAME TEST_CPP)</span><br></pre></td></tr></table></figure>
+<h3 id="编译结果链接库">编译结果链接库</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_library(person SHARED $&#123;srcs&#125;)</span><br><span class="line">add_library(person_static STATIC $&#123;srcs&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="example">example</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">project(HELLO)</span><br><span class="line">set(SRC_LIST main.c hello.c)</span><br><span class="line">add_executable(hello $&#123;SRC_LIST&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake ../</span><br></pre></td></tr></table></figure>
+<p>cmake后接CMakeLists.txt位置</p>
+<p>所以可以在一个空文件夹执行<code>cmake ..</code>，防止文件太乱。</p>
+<h2 id="ncnn嵌入式交叉编译">NCNN嵌入式交叉编译</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;&lt;your-toolchain-compiler-path&gt;:$&#123;PATH&#125;&quot;</span><br><span class="line">or</span><br><span class="line">sudo apt install g++-arm-linux-gnueabi g++-arm-linux-gnueabihf g++-aarch64-linux-gnu</span><br></pre></td></tr></table></figure>
+<p>AArch32 target with soft float (arm-linux-gnueabi)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;ncnn-root-dir&gt;</span><br><span class="line">mkdir -p build-arm-linux-gnueabi</span><br><span class="line">cd build-arm-linux-gnueabi</span><br><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/arm-linux-gnueabi.toolchain.cmake ..</span><br><span class="line">make -j$(nproc)</span><br></pre></td></tr></table></figure>
+<p>AArch32 target with hard float (arm-linux-gnueabihf)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;ncnn-root-dir&gt;</span><br><span class="line">mkdir -p build-arm-linux-gnueabihf</span><br><span class="line">cd build-arm-linux-gnueabihf</span><br><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/arm-linux-gnueabihf.toolchain.cmake ..</span><br><span class="line">make -j$(nproc)</span><br></pre></td></tr></table></figure>
+<p>AArch64 GNU/Linux target (aarch64-linux-gnu)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;ncnn-root-dir&gt;</span><br><span class="line">mkdir -p build-aarch64-linux-gnu</span><br><span class="line">cd build-aarch64-linux-gnu</span><br><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/aarch64-linux-gnu.toolchain.cmake ..</span><br><span class="line">make -j$(nproc)</span><br></pre></td></tr></table></figure>
+<p>其中，<code>make -j</code>指定最多同时允许n个编译指令同时执行，比如<code>make -j2</code>。</p>
+<p>而$(nproc)表示处理器数量（当前进程可使用CPU数量）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/%E7%BC%96%E8%AF%91/" rel="tag"># 编译</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/07/11/about%20me/" rel="prev" title="about me">
+      <i class="fa fa-chevron-left"></i> about me
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/07/12/linux%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="next" title="linux环境变量">
+      linux环境变量 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cmakemake%E7%B2%97%E7%95%A5%E5%85%B3%E7%B3%BB"><span class="nav-number">1.</span> <span class="nav-text">cmake，make粗略关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmakelists.txt%E7%BC%96%E5%86%99"><span class="nav-number">2.</span> <span class="nav-text">CMakeLists.txt编写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9Acmake%E7%89%88%E6%9C%AC"><span class="nav-number">2.1.</span> <span class="nav-text">指定cmake版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%90%8D%E7%A7%B0"><span class="nav-number">2.2.</span> <span class="nav-text">项目名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%87%AA%E5%BB%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.</span> <span class="nav-text">环境变量&#x2F;自建变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%BA%93%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E7%9B%AE%E5%BD%95"><span class="nav-number">2.4.</span> <span class="nav-text">链接库文件搜索目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E8%A6%81%E9%93%BE%E6%8E%A5%E7%9A%84%E5%BA%93%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%8D%E7%A7%B0"><span class="nav-number">2.5.</span> <span class="nav-text">可执行文件要链接的库文件的名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">2.6.</span> <span class="nav-text">头文件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-number">2.7.</span> <span class="nav-text">源文件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E7%BB%93%E6%9E%9C%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="nav-number">2.8.</span> <span class="nav-text">编译结果可执行文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E7%BB%93%E6%9E%9C%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="nav-number">2.9.</span> <span class="nav-text">编译结果链接库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">2.10.</span> <span class="nav-text">example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ncnn%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text">NCNN嵌入式交叉编译</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">JintaoChen</p>
+  <div class="site-description" itemprop="description">即刻动手，脚踏实地，持之以恒</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JintaoChen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -147,6 +147,191 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/26/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/26/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="post-title-link" itemprop="url">离散数学学习笔记1</a>
+        </h2>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-26 01:41:20 / Modified: 04:47:26" itemprop="dateCreated datePublished" datetime="2020-01-26T01:41:20+08:00">2020-01-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="条件语句">1.条件语句</h1>
+<h2 id="定义">定义：</h2>
+<p><span class="math display">\[
+令p和q为命题。条件语句\ p\rightarrow q\ 是命题“如果p，则q”。\\
+当p为真而q为假时，条件语句\ p\rightarrow q\ 为假，否则为真。
+\]</span></p>
+<p>​ 容易混淆的语句： <span class="math display">\[
+“p仅当q”和“q除非\neg p”\\ 请记住“p仅当q”表达了与“如果p, 则q”同样的意思，
+注意“p仅当q”说的是当q不为真时p不能为真。\\
+也就是说，如果p为真但q为假，则这个语句为假。\\
+当p为假时，q可以为真也可以为假，因为语句并没有谈及q的真值。\\
+要小心不要用“q仅当p”来表达p\rightarrow q, 因为这是错误的。\\
+要明白这一点，请注意当p和q取不同的真值时，“q仅当p”和p\rightarrow
+q的真值是不
+同的。\\ 请记住“q除非\neg p“表达了和p\rightarrow q条件语句一样的意思，\\
+注意“q除非\neg p”的意思是如果\neg p是假的，则q必是真的。\\
+也就是说，当p为真，而q为假时，语句“q除非\neg p”是假的，否则是真的。\\
+因此， “q除非\neg p”与p\rightarrow q总是具有相同的真值。
+\]</span></p>
+<h1 id="重要的逻辑等价式">2.重要的逻辑等价式</h1>
+<p><span class="math display">\[
+结合律：\\
+(p\vee q)\vee r\equiv p\vee(q\vee r)\\
+(p\wedge q)\wedge r\equiv p\wedge(q\wedge r)\\
+分配律(良定义)：\\
+p\vee(q\wedge r)\equiv (p\vee q)\wedge(p\vee r)\\
+p\wedge(q\vee r)\equiv (p\wedge q)\vee(p\wedge r)\\
+徳·摩根律：\\
+\neg(p\wedge q)\equiv \neg p \vee \neg q\\
+\neg(p\vee q)\equiv \neg p \wedge \neg q\\
+\neg (\bigvee_{j=1}^{n}p_{j})\equiv\bigwedge_{j=1}^{n}\neg p_{j}\\
+\neg (\bigwedge_{j=1}^{n}p_{j})\equiv\bigvee_{j=1}^{n}\neg p_{j}\\
+吸收律：\\
+p\wedge (p \vee q)\equiv p\\
+p\vee (p \wedge q)\equiv p
+\]</span></p>
+<h2 id="条件命题的逻辑等价式">条件命题的逻辑等价式：</h2>
+<p><span class="math display">\[
+p\rightarrow q\equiv\neg p\vee q\\
+p\rightarrow q\equiv\neg q\rightarrow\neg p\\
+p\vee q\equiv \neg p\rightarrow q\\
+p\wedge q\equiv \neg(p\rightarrow \neg q)\\
+\neg(p\rightarrow q)\equiv p\wedge\neg q\\
+(p\rightarrow q)\wedge(p\rightarrow r)\equiv p\rightarrow(q\wedge r)\\
+(p\rightarrow r)\wedge(q\rightarrow r)\equiv (p\vee q)\rightarrow r\\
+(p\rightarrow q)\vee(p\rightarrow r)\equiv p\rightarrow(q\vee r)\\
+(p\rightarrow r)\vee(q\rightarrow r)\equiv (p\wedge q)\rightarrow r
+\]</span></p>
+<h2 id="双条件命题的逻辑等价式">双条件命题的逻辑等价式：</h2>
+<p><span class="math display">\[
+p\leftrightarrow q\equiv(p\to q)\wedge(q\to p)\\
+p\leftrightarrow q\equiv\neg p\leftrightarrow\neg q\\
+p\leftrightarrow q\equiv(p\wedge q)\vee(\neg p\wedge \neg q)\\
+\neg(p\leftrightarrow q)\equiv p\leftrightarrow\neg q
+\]</span></p>
+<p>​
+命题逻辑学深了的话，会很难，但也很有用。后面的数独解法在过完算法一章后，看能不能写个报告，早知道大作业做这个了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/18/pwntools%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/18/pwntools%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">pwntools笔记</a>
+        </h2>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-18 12:31:49 / Modified: 12:37:32" itemprop="dateCreated datePublished" datetime="2020-01-18T12:31:49+08:00">2020-01-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E5%AE%89/" itemprop="url" rel="index"><span itemprop="name">网安</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/18/bugku-new-%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -742,7 +927,7 @@ m:溶液的质量摩尔浓度（1000g溶剂中所含溶质的物质的量）
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -753,7 +938,7 @@ m:溶液的质量摩尔浓度（1000g溶剂中所含溶质的物质的量）
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
