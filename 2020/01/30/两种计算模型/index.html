@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -20,13 +20,13 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="综述：​	两种计算模型（图灵机和ram）的作用都是比较与评判算法的效率。 ​	话说好像没啥好写的，就放了些图片。图片来自清华大学数据结构慕课（Junhui Deng）的讲义。 1.图灵机   其中(&lt;, 1; 0, L, &lt;)之类的式子，与其说是一个步骤，不如说是一个法则，一种if法则。 2.ram(random access machine)注意，ram只有加减的操作。">
+  <meta name="description" content="综述： ​ 两种计算模型（图灵机和ram）的作用都是比较与评判算法的效率。 ​ 话说好像没啥好写的，就放了些图片。图片来自清华大学数据结构慕课（Junhui Deng）的讲义。 1.图灵机   图灵机1    图灵机2    图灵机3  其中(&lt;, 1; 0, L, &lt;)之类的式子，与其说是一个步骤，不如说是一个法则，一种if法则。 2.ram(r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="两种计算模型">
 <meta property="og:url" content="http://example.com/2020/01/30/%E4%B8%A4%E7%A7%8D%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="JintaoChen&#39;s blog">
-<meta property="og:description" content="综述：​	两种计算模型（图灵机和ram）的作用都是比较与评判算法的效率。 ​	话说好像没啥好写的，就放了些图片。图片来自清华大学数据结构慕课（Junhui Deng）的讲义。 1.图灵机   其中(&lt;, 1; 0, L, &lt;)之类的式子，与其说是一个步骤，不如说是一个法则，一种if法则。 2.ram(random access machine)注意，ram只有加减的操作。">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="综述： ​ 两种计算模型（图灵机和ram）的作用都是比较与评判算法的效率。 ​ 话说好像没啥好写的，就放了些图片。图片来自清华大学数据结构慕课（Junhui Deng）的讲义。 1.图灵机   图灵机1    图灵机2    图灵机3  其中(&lt;, 1; 0, L, &lt;)之类的式子，与其说是一个步骤，不如说是一个法则，一种if法则。 2.ram(r">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.ax1x.com/2020/01/30/1lMbW9.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/01/30/1lMOQ1.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/01/30/1lMjL6.png">
@@ -50,7 +50,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'zh-CN'
+    lang   : 'en'
   };
 </script>
 
@@ -94,7 +94,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -123,12 +123,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
@@ -158,7 +158,7 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/30/%E4%B8%A4%E7%A7%8D%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -181,16 +181,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="创建时间：2020-01-30 02:53:08 / 修改时间：03:38:19" itemprop="dateCreated datePublished" datetime="2020-01-30T02:53:08+08:00">2020-01-30</time>
+              <time title="Created: 2020-01-30 02:53:08 / Modified: 03:38:19" itemprop="dateCreated datePublished" datetime="2020-01-30T02:53:08+08:00">2020-01-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
                 </span>
@@ -207,17 +207,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h1><p>​	两种计算模型（图灵机和ram）的作用都是比较与评判算法的效率。</p>
-<p>​	话说好像没啥好写的，就放了些图片。图片来自清华大学数据结构慕课（Junhui Deng）的讲义。</p>
-<h1 id="1-图灵机"><a href="#1-图灵机" class="headerlink" title="1.图灵机"></a>1.图灵机</h1><p><img src="https://s2.ax1x.com/2020/01/30/1lMbW9.png" alt="图灵机1"></p>
-<p><img src="https://s2.ax1x.com/2020/01/30/1lMOQ1.png" alt="图灵机2"></p>
-<p><img src="https://s2.ax1x.com/2020/01/30/1lMjL6.png" alt="图灵机3"></p>
+        <h1 id="综述">综述：</h1>
+<p>​ 两种计算模型（图灵机和ram）的作用都是比较与评判算法的效率。</p>
+<p>​
+话说好像没啥好写的，就放了些图片。图片来自清华大学数据结构慕课（Junhui
+Deng）的讲义。</p>
+<h1 id="图灵机">1.图灵机</h1>
+<figure>
+<img src="https://s2.ax1x.com/2020/01/30/1lMbW9.png" alt="图灵机1" />
+<figcaption aria-hidden="true">图灵机1</figcaption>
+</figure>
+<figure>
+<img src="https://s2.ax1x.com/2020/01/30/1lMOQ1.png" alt="图灵机2" />
+<figcaption aria-hidden="true">图灵机2</figcaption>
+</figure>
+<figure>
+<img src="https://s2.ax1x.com/2020/01/30/1lMjL6.png" alt="图灵机3" />
+<figcaption aria-hidden="true">图灵机3</figcaption>
+</figure>
 <p>其中<code>(&lt;, 1; 0, L, &lt;)</code>之类的式子，与其说是一个步骤，不如说是一个法则，一种if法则。</p>
-<h1 id="2-ram-random-access-machine"><a href="#2-ram-random-access-machine" class="headerlink" title="2.ram(random access machine)"></a>2.ram(random access machine)</h1><p><strong>注意，ram只有加减的操作。</strong></p>
-<p><img src="https://s2.ax1x.com/2020/01/30/1lMXsx.png" alt="ram1"></p>
-<p><img src="https://s2.ax1x.com/2020/01/30/1lM7i4.png" alt="ram2"></p>
-<p><img src="https://s2.ax1x.com/2020/01/30/1l3FSJ.png" alt="ram3"></p>
-<p><img src="https://s2.ax1x.com/2020/01/30/1lMqzR.png"></p>
+<h1 id="ramrandom-access-machine">2.ram(random access machine)</h1>
+<p><strong>注意，ram只有加减的操作。</strong></p>
+<figure>
+<img src="https://s2.ax1x.com/2020/01/30/1lMXsx.png" alt="ram1" />
+<figcaption aria-hidden="true">ram1</figcaption>
+</figure>
+<figure>
+<img src="https://s2.ax1x.com/2020/01/30/1lM7i4.png" alt="ram2" />
+<figcaption aria-hidden="true">ram2</figcaption>
+</figure>
+<figure>
+<img src="https://s2.ax1x.com/2020/01/30/1l3FSJ.png" alt="ram3" />
+<figcaption aria-hidden="true">ram3</figcaption>
+</figure>
+<p><img src="https://s2.ax1x.com/2020/01/30/1lMqzR.png" /></p>
 
     </div>
 
@@ -292,16 +315,16 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%BC%E8%BF%B0%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">综述：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9B%BE%E7%81%B5%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">1.图灵机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-ram-random-access-machine"><span class="nav-number">3.</span> <span class="nav-text">2.ram(random access machine)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%BC%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">综述：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%81%B5%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">1.图灵机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ramrandom-access-machine"><span class="nav-number">3.</span> <span class="nav-text">2.ram(random access machine)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -316,18 +339,18 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">24</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
         <span class="site-state-item-count">21</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -359,7 +382,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">JintaoChen</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
         
@@ -408,6 +431,8 @@
 
 
 
+
+  
 
   
 
