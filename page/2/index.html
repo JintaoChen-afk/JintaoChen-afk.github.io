@@ -147,6 +147,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/26/cpp1x-1/" class="post-title-link" itemprop="url">cpp1x_1</a>
+        </h2>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-26 10:24:38 / Modified: 10:37:46" itemprop="dateCreated datePublished" datetime="2020-04-26T10:24:38+08:00">2020-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>语言可用性强化：</p>
+<p>1.nullptr 和 constexpr</p>
+<p>nullptr是为了区分0和NULL（空指针）</p>
+<h4 id="nullptr">（1）nullptr</h4>
+<p><code>nullptr</code> 出现的目的是为了替代
+<code>NULL</code>。在某种意义上来说，传统 C++ 会把
+<code>NULL</code>、<code>0</code> 视为同一种东西，这取决于编译器如何定义
+NULL，有些编译器会将 NULL 定义为
+<code>((void*)0)</code>，有些则会直接将其定义为 <code>0</code>。</p>
+<p>C++ 不允许直接将 <code>void *</code> 隐式转换到其他类型，但如果
+<code>NULL</code> 被定义为 <code>((void*)0)</code>，那么当编译
+<code>char *ch = NULL;</code> 时，<code>NULL</code> 只好被定义为
+<code>0</code>。而这依然会产生问题，将导致了 <code>C++</code>
+中重载特性会发生混乱，考虑：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">char</span> *)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>对于这两个函数来说，如果 <code>NULL</code> 又被定义为了
+<code>0</code> 那么 <code>foo(NULL);</code> 这个语句将会去调用
+<code>foo(int)</code>，从而导致代码违反直观。</p>
+<p>为了解决这个问题，C++ 11 引入了 <code>nullptr</code>
+关键字，专门用来区分空指针、0。<code>nullptr</code> 的类型为
+<code>nullptr_t</code>，能够隐式的转换为任何指针或成员指针的类型，也能和他们进行相等或者不等的比较。</p>
+<p>你可以尝试使用 g++ 编译下面的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">char</span> *)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">NULL</span> == (<span class="type">void</span> *)<span class="number">0</span>) std::cout &lt;&lt; <span class="string">&quot;NULL == 0&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">else</span> std::cout &lt;&lt; <span class="string">&quot;NULL != 0&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">foo</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// foo(NULL); // 编译无法通过</span></span><br><span class="line">    <span class="built_in">foo</span>(<span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">char</span> *ch)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;call foo(char*)&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;call foo(int)&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NULL == 0</span><br><span class="line">call foo(int)</span><br><span class="line">call foo(char*)</span><br></pre></td></tr></table></figure>
+<p>当我们加上注释中的 <code>foo(NULL)</code> 将编译无法通过：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">foo.cpp: In function ‘int main()’:</span><br><span class="line">foo.cpp:10:13: error: call of overloaded ‘foo(NULL)’ is ambiguous</span><br><span class="line">     foo(NULL); // 编译无法通过</span><br><span class="line">             ^</span><br><span class="line">foo.cpp:2:6: note: candidate: void foo(char*)</span><br><span class="line"> void foo(char *);</span><br><span class="line">      ^</span><br><span class="line">foo.cpp:3:6: note: candidate: void foo(int)</span><br><span class="line"> void foo(int);</span><br></pre></td></tr></table></figure>
+<p>所以，当需要使用 <code>NULL</code> 时候，请养成直接使用
+<code>nullptr</code> 的习惯。</p>
+<h4 id="constexpr">（2）constexpr</h4>
+<p>C++ 本身已经具备了常数表达式的概念，比如
+<code>1+2</code>、<code>3*4</code>
+这种表达式总是会产生相同的结果并且没有任何副作用。如果编译器能够在编译时就把这些表达式直接优化并植入到程序运行时，将能增加程序的性能。</p>
+<p>一个非常显著的例子就是在数组的定义阶段：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LEN 10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">len_foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> arr_1[<span class="number">10</span>];</span><br><span class="line">    <span class="type">char</span> arr_2[LEN];</span><br><span class="line">    <span class="type">int</span> len = <span class="number">5</span>;</span><br><span class="line">    <span class="type">char</span> arr_3[len+<span class="number">5</span>];          <span class="comment">// 非法</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> len_2 = <span class="number">10</span>;</span><br><span class="line">    <span class="type">char</span> arr_4[len_2+<span class="number">5</span>];        <span class="comment">// 合法</span></span><br><span class="line">    <span class="type">char</span> arr_5[<span class="built_in">len_foo</span>()+<span class="number">5</span>];  <span class="comment">// 非法   </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 C++11 之前，可以在常量表达式中使用的变量必须被声明为
+<code>const</code>，在上面代码中，<code>len_2</code>
+被定义成了常量，因此 <code>len_2+5</code>
+是一个常量表达式，所以能够合法的分配一个数组；</p>
+<p>而对于 <code>arr_5</code> 来说，C++98 之前的编译器无法得知
+<code>len_foo()</code>
+在运行期实际上是返回一个常数，这也就导致了非法的产生。</p>
+<p>C++ 11 提供了 <code>constexpr</code>
+让用户显式的声明函数或对象构造函数在编译器会成为常数，这个关键字明确的告诉编译器应该去验证
+<code>len_foo</code> 在编译器就应该是一个常数。</p>
+<p>此外，<code>constexpr</code> 的函数可以使用递归：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">constexpr</span> <span class="type">int</span> <span class="title">fibonacci</span><span class="params">(<span class="type">const</span> <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n == <span class="number">1</span> || n == <span class="number">2</span> ? <span class="number">1</span> : <span class="built_in">fibonacci</span>(n<span class="number">-1</span>)+<span class="built_in">fibonacci</span>(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从 C++ 14 开始，<code>constexptr</code>
+函数可以在内部使用局部变量、循环和分支等简单语句，但 C++ 11
+中是不可以的。例如下面的代码在 C++ 11 的标准下是不能够通过编译的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">constexpr</span> <span class="type">int</span> <span class="title">fibonacci</span><span class="params">(<span class="type">const</span> <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fibonacci</span>(n<span class="number">-1</span>)+<span class="built_in">fibonacci</span>(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/c-1x/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1154,108 +1273,6 @@ Linux，可以从网上下载，但要记住，RAR for Linux
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/30/%E4%B8%A4%E7%A7%8D%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JintaoChen">
-      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JintaoChen's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/30/%E4%B8%A4%E7%A7%8D%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">两种计算模型</a>
-        </h2>
-
-        <div class="post-meta">
-		   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-30 02:53:08 / Modified: 03:38:19" itemprop="dateCreated datePublished" datetime="2020-01-30T02:53:08+08:00">2020-01-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="综述">综述：</h1>
-<p>​ 两种计算模型（图灵机和ram）的作用都是比较与评判算法的效率。</p>
-<p>​
-话说好像没啥好写的，就放了些图片。图片来自清华大学数据结构慕课（Junhui
-Deng）的讲义。</p>
-<h1 id="图灵机">1.图灵机</h1>
-<figure>
-<img src="https://s2.ax1x.com/2020/01/30/1lMbW9.png" alt="图灵机1" />
-<figcaption aria-hidden="true">图灵机1</figcaption>
-</figure>
-<figure>
-<img src="https://s2.ax1x.com/2020/01/30/1lMOQ1.png" alt="图灵机2" />
-<figcaption aria-hidden="true">图灵机2</figcaption>
-</figure>
-<figure>
-<img src="https://s2.ax1x.com/2020/01/30/1lMjL6.png" alt="图灵机3" />
-<figcaption aria-hidden="true">图灵机3</figcaption>
-</figure>
-<p>其中<code>(&lt;, 1; 0, L, &lt;)</code>之类的式子，与其说是一个步骤，不如说是一个法则，一种if法则。</p>
-<h1 id="ramrandom-access-machine">2.ram(random access machine)</h1>
-<p><strong>注意，ram只有加减的操作。</strong></p>
-<figure>
-<img src="https://s2.ax1x.com/2020/01/30/1lMXsx.png" alt="ram1" />
-<figcaption aria-hidden="true">ram1</figcaption>
-</figure>
-<figure>
-<img src="https://s2.ax1x.com/2020/01/30/1lM7i4.png" alt="ram2" />
-<figcaption aria-hidden="true">ram2</figcaption>
-</figure>
-<figure>
-<img src="https://s2.ax1x.com/2020/01/30/1l3FSJ.png" alt="ram3" />
-<figcaption aria-hidden="true">ram3</figcaption>
-</figure>
-<p><img src="https://s2.ax1x.com/2020/01/30/1lMqzR.png" /></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1325,7 +1342,7 @@ Deng）的讲义。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1336,7 +1353,7 @@ Deng）的讲义。</p>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
