@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="12 1234567891011121314方法1：sudo apt-get install cmake方法2：# 下载地址： https:&#x2F;&#x2F;cmake.org&#x2F; tar -xvf cmake-3.24.0-rc1.tar.gzchmod -R 777 cmake-3.24.0-rc1cd cmake-3.24.0-rc1sudo .&#x2F;bootstrap sudo make sudo make">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ncnn tools onnx编译">
+<meta property="og:url" content="http://example.com/2023/07/25/ncnn-tools-onnx%E7%BC%96%E8%AF%91/index.html">
+<meta property="og:site_name" content="JintaoChen&#39;s blog">
+<meta property="og:description" content="12 1234567891011121314方法1：sudo apt-get install cmake方法2：# 下载地址： https:&#x2F;&#x2F;cmake.org&#x2F; tar -xvf cmake-3.24.0-rc1.tar.gzchmod -R 777 cmake-3.24.0-rc1cd cmake-3.24.0-rc1sudo .&#x2F;bootstrap sudo make sudo make">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-25T10:27:30.000Z">
+<meta property="article:modified_time" content="2023-08-07T10:50:19.916Z">
+<meta property="article:author" content="JintaoChen">
+<meta property="article:tag" content="编译">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/07/25/ncnn-tools-onnx%E7%BC%96%E8%AF%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ncnn tools onnx编译 | JintaoChen's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JintaoChen's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/25/ncnn-tools-onnx%E7%BC%96%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ncnn tools onnx编译
+        </h1>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-07-25 18:27:30" itemprop="dateCreated datePublished" datetime="2023-07-25T18:27:30+08:00">2023-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-08-07 18:50:19" itemprop="dateModified" datetime="2023-08-07T18:50:19+08:00">2023-08-07</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>12</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">方法1：</span><br><span class="line">sudo apt-get install cmake</span><br><span class="line"></span><br><span class="line">方法2：</span><br><span class="line"># 下载地址： https://cmake.org/ </span><br><span class="line">tar -xvf cmake-3.24.0-rc1.tar.gz</span><br><span class="line">chmod -R 777 cmake-3.24.0-rc1</span><br><span class="line">cd cmake-3.24.0-rc1</span><br><span class="line">sudo ./bootstrap </span><br><span class="line">sudo make </span><br><span class="line">sudo make install </span><br><span class="line"></span><br><span class="line">#安装成功查看cmake版本：</span><br><span class="line">cmake --version</span><br></pre></td></tr></table></figure>
+<p>protobuf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install autoconf automake libtool</span><br><span class="line">wget https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/protobuf-all-3.19.4.zip</span><br><span class="line">cd protobuf-3.19.4</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">protoc --version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>opencv</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git cmake</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y gfortran</span><br><span class="line">sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev libatlas-base-dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>装了两次protobuf，莫名其妙解决了protobuf lib找不到的问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DNCNN_BUILD_TOOLS=ON ..</span><br></pre></td></tr></table></figure>
+<p>编译工具时不指定平台过编译</p>
+<p>onnx2ncnn</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install onnx-simplifier</span><br><span class="line">python3 -m onnxsim my_mobileface.onnx my_mobileface-sim.onnx</span><br><span class="line">./onnx2ncnn my_mobileface-sim.onnx my_mobileface.param my_mobileface.bin</span><br></pre></td></tr></table></figure>
+<p>inference代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;opencv2/core/core.hpp&gt;</span><br><span class="line">#include &lt;opencv2/highgui/highgui.hpp&gt;</span><br><span class="line">#include &quot;opencv2/imgproc/imgproc.hpp&quot;</span><br><span class="line"></span><br><span class="line">#include &quot;net.h&quot;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">//这个函数是官方提供的用于打印输出的tensor</span><br><span class="line">void pretty_print(const ncnn::Mat&amp; m)</span><br><span class="line">&#123;</span><br><span class="line">    for (int q=0; q&lt;m.c; q++)</span><br><span class="line">    &#123;</span><br><span class="line">        const float* ptr = m.channel(q);</span><br><span class="line">        for (int y=0; y&lt;m.h; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int x=0; x&lt;m.w; x++)</span><br><span class="line">            &#123;</span><br><span class="line">                printf(&quot;%f &quot;, ptr[x]);</span><br><span class="line">            &#125;</span><br><span class="line">            ptr += m.w;</span><br><span class="line">            printf(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;------------------------\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//main函数模板</span><br><span class="line">int main()&#123;</span><br><span class="line">    string img_path = &quot;xxx.jpg&quot;;</span><br><span class="line">    cv::Mat img = cv::imread(img_path, cv::IMREAD_COLOR);</span><br><span class="line">    cv::Mat img2;</span><br><span class="line">    int input_width = 512;//转onnx时指定的输入大小</span><br><span class="line">    int input_height = 512;</span><br><span class="line">    // resize</span><br><span class="line">    cv::resize(img, img2, cv::Size(input_width, input_height));</span><br><span class="line"></span><br><span class="line">    // 加载转换并且量化后的alexnet网络</span><br><span class="line">    ncnn::Net net;</span><br><span class="line">    //net.opt.num_threads=1;</span><br><span class="line">    net.load_param(&quot;xxx.param&quot;);</span><br><span class="line">    net.load_model(&quot;xxx.bin&quot;);</span><br><span class="line">    // 把opencv的mat转换成ncnn的mat</span><br><span class="line">    ncnn::Mat input = ncnn::Mat::from_pixels(img2.data, ncnn::Mat::PIXEL_BGR, img2.cols, img2.rows);</span><br><span class="line">    const float mean_vals[3] = &#123;0.f,0.f,0.f&#125;;</span><br><span class="line">    const float norm_vals[3] = &#123;1/255.f,1/255.f,1/255.f&#125;;</span><br><span class="line">    input.substract_mean_normalize(mean_vals, norm_vals);</span><br><span class="line">    // ncnn前向计算</span><br><span class="line">    ncnn::Extractor extractor = net.create_extractor();</span><br><span class="line">    extractor.input(&quot;input&quot;, input);</span><br><span class="line">    ncnn::Mat output0,output1;//取决于模型的输出有几个</span><br><span class="line">    extractor.extract(&quot;output0&quot;, output0);</span><br><span class="line">    extractor.extract(&quot;output1&quot;, output1);</span><br><span class="line">    pretty_print(output0);</span><br><span class="line">    pretty_print(output1);</span><br><span class="line">    /*</span><br><span class="line">    // 或者展平后输出</span><br><span class="line">    ncnn::Mat out_flatterned = output0.reshape(output0.w * output0.h * output0.c);</span><br><span class="line">    std::vector&lt;float&gt; scores;</span><br><span class="line">    scores.resize(out_flatterned.w);</span><br><span class="line">    for (int j=0; j&lt;out_flatterned.w; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        scores[j] = out_flatterned[j];</span><br><span class="line">    &#125;</span><br><span class="line">    */</span><br><span class="line">    cout&lt;&lt;&quot;done&quot;&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>netron</p>
+<p><a href="netron.app">netron.app</a></p>
+<p>examples</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/aarch64-linux-gnu.toolchain.cmake -DNCNN_BUILD_EXAMPLES=ON -DNCNN_BUILD_BENCHMARK=OFF ..</span><br><span class="line"></span><br><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/aarch64-linux-gnu.toolchain.cmake -DNCNN_BUILD_EXAMPLES=ON -DNCNN_SIMPLEOCV=ON ..</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>工具链位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/bin/</span><br><span class="line">/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/lib</span><br><span class="line"></span><br><span class="line">export PATH=$PATH:/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/bin/</span><br><span class="line">export LD_LIBRARY_PATH=$&#123;LD_LIBRARY_PATH&#125;:/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/lib</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>opencv</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd ~/opencv-3.4.3  # 进入opencv文件夹</span><br><span class="line">mkdir build # 创建build文件夹</span><br><span class="line">cd build # 进入build文件夹</span><br><span class="line">#cmake指令，如果没有特殊要求建议就选择默认的就可以</span><br><span class="line">#注意，后面的两个点千万不能省，代表了上级目录</span><br><span class="line">cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..  </span><br><span class="line">#我的理解是这cmake把opencv的一些库和可执行文件安装到了系统目录下，方便日后程序调用</span><br><span class="line">make -j7 # 多线程执行make任务</span><br><span class="line"> </span><br><span class="line"># 安装库文件</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>交叉编译opencv就会出问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=1 ! \</span><br><span class="line">video/x-raw,format=NV12,width=1920,height=1080 ! mppjpegenc ! \</span><br><span class="line">multifilesink location=/tmp/test1.jpg </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=1 ! \</span><br><span class="line">video/x-raw,format=NV12,width=1920,height=1080 ! mppjpegenc ! \</span><br><span class="line">multifilesink location=/tmp/test1.jpg &gt; ./nanodet</span><br><span class="line"></span><br><span class="line">gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=1 ! \</span><br><span class="line">video/x-raw,format=NV12,width=1920,height=1080 ! mppjpegenc &gt; ./nanodet</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>优化onnx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 -m onnxsim age_estimation.onnx age_sim.onnx --overwrite-input-shape 1,3,64,64</span><br><span class="line">先param 再 bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E8%AF%91/" rel="tag"># 编译</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/07/17/git%E5%9C%A8clash%E4%B8%8B%E7%9A%84%E4%BB%A3%E7%90%86/" rel="prev" title="git在clash下的代理">
+      <i class="fa fa-chevron-left"></i> git在clash下的代理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/07/jetson-tx2-%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" rel="next" title="jetson tx2 重装系统">
+      jetson tx2 重装系统 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">JintaoChen</p>
+  <div class="site-description" itemprop="description">即刻动手，脚踏实地，持之以恒</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JintaoChen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

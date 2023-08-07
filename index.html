@@ -217,6 +217,179 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/07/jetson-tx2-%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/07/jetson-tx2-%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">jetson tx2 重装系统</a>
+        </h2>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-08-07 18:51:05 / Modified: 19:21:16" itemprop="dateCreated datePublished" datetime="2023-08-07T18:51:05+08:00">2023-08-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1.ubuntu系统18.04及以下，系统留至少60GB空间，虚拟机也行</p>
+<p>2.只需要自带的usb线</p>
+<p>3.软件</p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/sdk-manager/index.html">sdk</a></p>
+<p>下载目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ./sdkmanager_XXXX.deb</span><br><span class="line">sdkmanager</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>tx2进入recoverry状态</li>
+<li>在关机状态下按下并松开TX2的POWER键S4； 按下并保持FORCE
+RECOVERY键S3； 在此期间按下并松开RESET键S1；等待2秒后松开FORCE
+RECOVERY键S3。
+此步骤类似window进入biso，如果设置了上电开机模式，上电后则直接按下recovery，进行后续</li>
+</ol>
+<p>此时能在虚拟机上用lsusb指令查看到NVIDIA corp项</p>
+<p>6.安装过程步骤一中host machine项可不选</p>
+<p>步骤2接收协议，不勾选 download now。install later项</p>
+<p>等待下载完成，开始安装</p>
+<p>选择manual setup</p>
+<p>等待系统flash完成，跳出要使用ssh连接的界面，此时转到tx2进入到系统，</p>
+<p>更换清华源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup  # backup</span><br><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main universe restricted</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main universe restricted</span><br></pre></td></tr></table></figure>
+<p>再继续安装SDK。</p>
+<p>注意虚拟机不能息屏，否则断网。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/25/ncnn-tools-onnx%E7%BC%96%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/25/ncnn-tools-onnx%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">ncnn tools onnx编译</a>
+        </h2>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-07-25 18:27:30" itemprop="dateCreated datePublished" datetime="2023-07-25T18:27:30+08:00">2023-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-08-07 18:50:19" itemprop="dateModified" datetime="2023-08-07T18:50:19+08:00">2023-08-07</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>12</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">方法1：</span><br><span class="line">sudo apt-get install cmake</span><br><span class="line"></span><br><span class="line">方法2：</span><br><span class="line"># 下载地址： https://cmake.org/ </span><br><span class="line">tar -xvf cmake-3.24.0-rc1.tar.gz</span><br><span class="line">chmod -R 777 cmake-3.24.0-rc1</span><br><span class="line">cd cmake-3.24.0-rc1</span><br><span class="line">sudo ./bootstrap </span><br><span class="line">sudo make </span><br><span class="line">sudo make install </span><br><span class="line"></span><br><span class="line">#安装成功查看cmake版本：</span><br><span class="line">cmake --version</span><br></pre></td></tr></table></figure>
+<p>protobuf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install autoconf automake libtool</span><br><span class="line">wget https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/protobuf-all-3.19.4.zip</span><br><span class="line">cd protobuf-3.19.4</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br><span class="line">protoc --version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>opencv</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git cmake</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y gfortran</span><br><span class="line">sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler</span><br><span class="line">sudo apt-get install --no-install-recommends libboost-all-dev</span><br><span class="line">sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev libatlas-base-dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>装了两次protobuf，莫名其妙解决了protobuf lib找不到的问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DNCNN_BUILD_TOOLS=ON ..</span><br></pre></td></tr></table></figure>
+<p>编译工具时不指定平台过编译</p>
+<p>onnx2ncnn</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install onnx-simplifier</span><br><span class="line">python3 -m onnxsim my_mobileface.onnx my_mobileface-sim.onnx</span><br><span class="line">./onnx2ncnn my_mobileface-sim.onnx my_mobileface.param my_mobileface.bin</span><br></pre></td></tr></table></figure>
+<p>inference代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;opencv2/core/core.hpp&gt;</span><br><span class="line">#include &lt;opencv2/highgui/highgui.hpp&gt;</span><br><span class="line">#include &quot;opencv2/imgproc/imgproc.hpp&quot;</span><br><span class="line"></span><br><span class="line">#include &quot;net.h&quot;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">//这个函数是官方提供的用于打印输出的tensor</span><br><span class="line">void pretty_print(const ncnn::Mat&amp; m)</span><br><span class="line">&#123;</span><br><span class="line">    for (int q=0; q&lt;m.c; q++)</span><br><span class="line">    &#123;</span><br><span class="line">        const float* ptr = m.channel(q);</span><br><span class="line">        for (int y=0; y&lt;m.h; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int x=0; x&lt;m.w; x++)</span><br><span class="line">            &#123;</span><br><span class="line">                printf(&quot;%f &quot;, ptr[x]);</span><br><span class="line">            &#125;</span><br><span class="line">            ptr += m.w;</span><br><span class="line">            printf(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;------------------------\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//main函数模板</span><br><span class="line">int main()&#123;</span><br><span class="line">    string img_path = &quot;xxx.jpg&quot;;</span><br><span class="line">    cv::Mat img = cv::imread(img_path, cv::IMREAD_COLOR);</span><br><span class="line">    cv::Mat img2;</span><br><span class="line">    int input_width = 512;//转onnx时指定的输入大小</span><br><span class="line">    int input_height = 512;</span><br><span class="line">    // resize</span><br><span class="line">    cv::resize(img, img2, cv::Size(input_width, input_height));</span><br><span class="line"></span><br><span class="line">    // 加载转换并且量化后的alexnet网络</span><br><span class="line">    ncnn::Net net;</span><br><span class="line">    //net.opt.num_threads=1;</span><br><span class="line">    net.load_param(&quot;xxx.param&quot;);</span><br><span class="line">    net.load_model(&quot;xxx.bin&quot;);</span><br><span class="line">    // 把opencv的mat转换成ncnn的mat</span><br><span class="line">    ncnn::Mat input = ncnn::Mat::from_pixels(img2.data, ncnn::Mat::PIXEL_BGR, img2.cols, img2.rows);</span><br><span class="line">    const float mean_vals[3] = &#123;0.f,0.f,0.f&#125;;</span><br><span class="line">    const float norm_vals[3] = &#123;1/255.f,1/255.f,1/255.f&#125;;</span><br><span class="line">    input.substract_mean_normalize(mean_vals, norm_vals);</span><br><span class="line">    // ncnn前向计算</span><br><span class="line">    ncnn::Extractor extractor = net.create_extractor();</span><br><span class="line">    extractor.input(&quot;input&quot;, input);</span><br><span class="line">    ncnn::Mat output0,output1;//取决于模型的输出有几个</span><br><span class="line">    extractor.extract(&quot;output0&quot;, output0);</span><br><span class="line">    extractor.extract(&quot;output1&quot;, output1);</span><br><span class="line">    pretty_print(output0);</span><br><span class="line">    pretty_print(output1);</span><br><span class="line">    /*</span><br><span class="line">    // 或者展平后输出</span><br><span class="line">    ncnn::Mat out_flatterned = output0.reshape(output0.w * output0.h * output0.c);</span><br><span class="line">    std::vector&lt;float&gt; scores;</span><br><span class="line">    scores.resize(out_flatterned.w);</span><br><span class="line">    for (int j=0; j&lt;out_flatterned.w; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        scores[j] = out_flatterned[j];</span><br><span class="line">    &#125;</span><br><span class="line">    */</span><br><span class="line">    cout&lt;&lt;&quot;done&quot;&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>netron</p>
+<p><a href="netron.app">netron.app</a></p>
+<p>examples</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/aarch64-linux-gnu.toolchain.cmake -DNCNN_BUILD_EXAMPLES=ON -DNCNN_BUILD_BENCHMARK=OFF ..</span><br><span class="line"></span><br><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchains/aarch64-linux-gnu.toolchain.cmake -DNCNN_BUILD_EXAMPLES=ON -DNCNN_SIMPLEOCV=ON ..</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>工具链位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/bin/</span><br><span class="line">/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/lib</span><br><span class="line"></span><br><span class="line">export PATH=$PATH:/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/bin/</span><br><span class="line">export LD_LIBRARY_PATH=$&#123;LD_LIBRARY_PATH&#125;:/home/chen/toolchains/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu/lib</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>opencv</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd ~/opencv-3.4.3  # 进入opencv文件夹</span><br><span class="line">mkdir build # 创建build文件夹</span><br><span class="line">cd build # 进入build文件夹</span><br><span class="line">#cmake指令，如果没有特殊要求建议就选择默认的就可以</span><br><span class="line">#注意，后面的两个点千万不能省，代表了上级目录</span><br><span class="line">cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..  </span><br><span class="line">#我的理解是这cmake把opencv的一些库和可执行文件安装到了系统目录下，方便日后程序调用</span><br><span class="line">make -j7 # 多线程执行make任务</span><br><span class="line"> </span><br><span class="line"># 安装库文件</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>交叉编译opencv就会出问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=1 ! \</span><br><span class="line">video/x-raw,format=NV12,width=1920,height=1080 ! mppjpegenc ! \</span><br><span class="line">multifilesink location=/tmp/test1.jpg </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=1 ! \</span><br><span class="line">video/x-raw,format=NV12,width=1920,height=1080 ! mppjpegenc ! \</span><br><span class="line">multifilesink location=/tmp/test1.jpg &gt; ./nanodet</span><br><span class="line"></span><br><span class="line">gst-launch-1.0 -v v4l2src device=/dev/video1 num-buffers=1 ! \</span><br><span class="line">video/x-raw,format=NV12,width=1920,height=1080 ! mppjpegenc &gt; ./nanodet</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>优化onnx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 -m onnxsim age_estimation.onnx age_sim.onnx --overwrite-input-shape 1,3,64,64</span><br><span class="line">先param 再 bin</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/17/git%E5%9C%A8clash%E4%B8%8B%E7%9A%84%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -885,209 +1058,6 @@ POD 的初始化方法提供了统一的桥梁，例如：</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JintaoChen">
-      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JintaoChen's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/26/cpp1x-3/" class="post-title-link" itemprop="url">cpp1x_3</a>
-        </h2>
-
-        <div class="post-meta">
-		   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-26 10:48:53 / Modified: 10:50:34" itemprop="dateCreated datePublished" datetime="2020-04-26T10:48:53+08:00">2020-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="区间迭代">区间迭代：</h1>
-<p>区间迭代是指基于范围的 for 循环。</p>
-<p>终于，C++ 11 引入了基于范围的迭代写法，我们拥有了能够写出像 Python
-一样简洁的循环语句：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> array[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp;x : array) &#123;</span><br><span class="line">    std::cout &lt;&lt; x &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最常用的 <code>std::vector</code> 遍历将从原来的样子：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(<span class="number">5</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"><span class="keyword">for</span>(std::vector&lt;<span class="type">int</span>&gt;::iterator i = arr.<span class="built_in">begin</span>(); i != arr.<span class="built_in">end</span>(); ++i) &#123;</span><br><span class="line">    std::cout &lt;&lt; *i &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>变得非常的简单：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &amp; 启用了引用, 如果没有则对 arr 中的元素只能读取不能修改</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i : arr) &#123;    </span><br><span class="line">    std::cout &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JintaoChen">
-      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JintaoChen's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/26/cpp1x-2/" class="post-title-link" itemprop="url">cpp1x_2</a>
-        </h2>
-
-        <div class="post-meta">
-		   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-26 10:38:17 / Modified: 10:48:34" itemprop="dateCreated datePublished" datetime="2020-04-26T10:38:17+08:00">2020-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="类型推导">类型推导：</h1>
-<p>在传统 C 和
-C++中，参数的类型都必须明确定义，这其实对我们快速进行编码没有任何帮助，尤其是当我们面对一大堆复杂的模板类型时，必须明确的指出变量的类型才能进行后续的编码，这不仅拖慢我们的开发效率，也让代码变得又臭又长。</p>
-<p>C++ 11 引入了 <code>auto</code> 和 <code>decltype</code>
-这两个关键字实现了类型推导，让编译器来操心变量的类型。这使得 C++
-也具有了和其他现代编程语言一样，某种意义上提供了无需操心变量类型的使用习惯。</p>
-<h4 id="auto">（1）auto</h4>
-<p><code>auto</code> 在很早以前就已经进入了
-C++，但是他始终作为一个存储类型的指示符存在，与 <code>register</code>
-并存。在传统 C++ 中，如果一个变量没有声明为 <code>register</code>
-变量，将自动被视为一个 <code>auto</code> 变量。而随着
-<code>register</code> 被弃用，对 <code>auto</code>
-的语义变更也就非常自然了。</p>
-<p>使用 <code>auto</code>
-进行类型推导的一个最为常见而且显著的例子就是迭代器。在以前我们需要这样来书写一个迭代器：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt;::const_iterator itr = vec.<span class="built_in">cbegin</span>(); itr != vec.<span class="built_in">cend</span>(); ++itr)</span><br></pre></td></tr></table></figure>
-<p>而有了 <code>auto</code> 之后可以：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 由于 cbegin() 将返回 vector&lt;int&gt;::const_iterator </span></span><br><span class="line"><span class="comment">// 所以 itr 也应该是 vector&lt;int&gt;::const_iterator 类型</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> itr = vec.<span class="built_in">cbegin</span>(); itr != vec.<span class="built_in">cend</span>(); ++itr);</span><br></pre></td></tr></table></figure>
-<p>一些其他的常见用法：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> i = <span class="number">5</span>;             <span class="comment">// i 被推导为 int</span></span><br><span class="line"><span class="keyword">auto</span> arr = <span class="keyword">new</span> <span class="built_in">auto</span>(<span class="number">10</span>) <span class="comment">// arr 被推导为 int *</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong>：<code>auto</code>
-不能用于函数传参，因此下面的做法是无法通过编译的（考虑重载的问题，我们应该使用模板）：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="keyword">auto</span> x, <span class="keyword">auto</span> y)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>此外，<code>auto</code> 还不能用于推导数组类型：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">auto</span> i = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"> <span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"> <span class="keyword">auto</span> auto_arr = arr;</span><br><span class="line"> <span class="keyword">auto</span> auto_arr2[<span class="number">10</span>] = arr;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="decltype">（2）decltype</h4>
-<p><code>decltype</code> 关键字是为了解决 auto
-关键字只能对变量进行类型推导的缺陷而出现的。</p>
-<p>它的用法和 <code>sizeof</code> 很相似：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>(表达式)</span><br></pre></td></tr></table></figure>
-<p>在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值。</p>
-<p>有时候，我们可能需要计算某个表达式的类型，例如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">auto</span> y = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">decltype</span>(x+y) z;   <span class="comment">// z 是一个 int 型的</span></span><br></pre></td></tr></table></figure>
-<h4 id="尾返回类型auto-与-decltype-配合">（3）尾返回类型、auto 与
-decltype 配合</h4>
-<p>你可能会思考，<code>auto</code>
-能不能用于推导函数的返回类型。考虑这样一个例子加法函数的例子，在传统 C++
-中我们必须这么写：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> R, <span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span></span><br><span class="line"><span class="function">R <span class="title">add</span><span class="params">(T x, U y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>typename 和 class 在模板中没有区别，在 typename
-这个关键字出现之前，都是使用 class 来定义模板参数的</p>
-</blockquote>
-<p>这样的代码其实变得很丑陋，因为程序员在使用这个模板函数的时候，必须明确指出返回类型。但事实上我们并不知道
-<code>add()</code>
-这个函数会做什么样的操作，获得一个什么样的返回类型。</p>
-<p>在 C++11 中这个问题得到解决。虽然你可能马上回反应出来使用
-<code>decltype</code> 推导 <code>x+y</code> 的类型，写出这样的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>(x+y) <span class="built_in">add</span>(T x, U y);</span><br></pre></td></tr></table></figure>
-<p>但事实上这样的写法并不能通过编译。这是因为在编译器读到
-<code>decltype(x+y)</code> 时，<code>x</code> 和 <code>y</code>
-尚未被定义。为了解决这个问题，C++ 11
-还引入了一个叫做尾返回类型（trailing return type），利用 auto
-关键字将返回类型后置：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">add</span><span class="params">(T x, U y)</span> -&gt; <span class="title">decltype</span><span class="params">(x+y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>令人欣慰的是从 C++ 14
-开始是可以直接让普通函数具备返回值推导，因此下面的写法变得合法：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">add</span><span class="params">(T x, U y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1157,7 +1127,7 @@ decltype 配合</h4>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1168,7 +1138,7 @@ decltype 配合</h4>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
