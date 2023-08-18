@@ -217,6 +217,324 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/18/%E6%9C%80%E6%97%A9%E7%9A%84c%E8%AF%AD%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="JintaoChen">
+      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JintaoChen's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/18/%E6%9C%80%E6%97%A9%E7%9A%84c%E8%AF%AD%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/" class="post-title-link" itemprop="url">最早的c语言编译器</a>
+        </h2>
+
+        <div class="post-meta">
+		   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-08-18 21:37:54 / Modified: 21:43:35" itemprop="dateCreated datePublished" datetime="2023-08-18T21:37:54+08:00">2023-08-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>reffrence <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78506135">链接一</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.zhihu.com/question/22826568/answer/318102471">链接二</a></p>
+<h2 id="key-words-iteration">key words iteration</h2>
+<p>那么这种大胆的子集简化的方法，是怎么实现的，又有什么理论依据呢？先介绍一个概念，“自编译”Self-Compile，也就是对于某些具有明显自举性质的强类型（所谓强类型就是程序中的每个变量必须声明类型后才能使用，比如C语言，相反有些脚本语言则根本没有类型这一说法）编程语言，可以借助它们的一个有限小子集，通过有限次数的递推来实现对它们自身的表述，这样的语言有
+C、Pascal、Ada
+等等，至于为什么可以自编译，可以参见清华大学出版社的《编译原理》，书中实现了一个
+Pascal
+的子集的编译器。总之，已经有计算机科学家证明了，C语言理论上是可以通过上面说的
+CVM
+的方法实现完整的编译器的，那么实际上是怎样做到简化的呢？这张图是不是有点熟悉？对了就是在讲虚拟机的时候见到过，不过这里是
+CVM（C Language Virtual
+Machine），每种语言都是在每个虚拟层上可以独立实现编译的，并且除了C语言外，每一层的输出都将作为下一层的输入（最后一层的输出就是应用程序了），这和滚雪球是一个道理。用手（汇编语言）把一小把雪结合在一起，一点点地滚下去就形成了一个大雪球，这大概就是所谓的
+0 生1，1 生C，C生万物吧？</p>
+<p>先创造一个只有C语言最基本功能的子集，记作 C0 语言，C0
+语言已经足够简单了，可以直接用汇编语言编写出 C0 的编译器。依靠 C0
+已有的功能，设计比 C0 复杂，但仍然不完整的C语言的又一个子集 C1
+语言，其中 C0 属于 C1，C1 属于C，用 C0 开发出 C1 语言的编译器。在 C1
+的基础上设计C语言的又一个子集 C2 语言，C2 语言比 C1
+复杂，但是仍然不是完整的C语言，开发出 C2 语言的编译器……如此直到 CN，CN
+已经足够强大了，这时候就足够开发出完整的C语言编译器的实现了。至于这里的N是多少，这取决于你的目标语言（这里是C语言）的复杂程度和程序员的编程能力——简单地说，如果到了某个子集阶段，可以很方便地利用现有功能实现C语言时，那么你就找到N了</p>
+<p>那么这种大胆的子集简化的方法，是怎么实现的，又有什么理论依据呢？先介绍一个概念，“自编译”Self-Compile，也就是对于某些具有明显自举性质的强类型（所谓强类型就是程序中的每个变量必须声明类型后才能使用，比如C语言，相反有些脚本语言则根本没有类型这一说法）编程语言，可以借助它们的一个有限小子集，通过有限次数的递推来实现对它们自身的表述，这样的语言有
+C、Pascal、Ada
+等等，至于为什么可以自编译，可以参见清华大学出版社的《编译原理》，书中实现了一个
+Pascal
+的子集的编译器。总之，已经有计算机科学家证明了，C语言理论上是可以通过上面说的
+CVM
+的方法实现完整的编译器的，那么实际上是怎样做到简化的呢？这张图是不是有点熟悉？对了就是在讲虚拟机的时候见到过，不过这里是
+CVM（C Language Virtual
+Machine），每种语言都是在每个虚拟层上可以独立实现编译的，并且除了C语言外，每一层的输出都将作为下一层的输入（最后一层的输出就是应用程序了），这和滚雪球是一个道理。用手（汇编语言）把一小把雪结合在一起，一点点地滚下去就形成了一个大雪球，这大概就是所谓的
+0 生1，1 生C，C生万物吧？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(break)</span><br><span class="line">void</span><br><span class="line">goto</span><br><span class="line">int</span><br><span class="line">double</span><br><span class="line">(if)</span><br></pre></td></tr></table></figure>
+<h2 id="history-note">history note</h2>
+<p>1822 年，Charles Babbage 研发差分机(自动化算术)。英国政府赞助。</p>
+<p>1832 年，差分机只能完成 1/7。</p>
+<p>1837 年，Charles Babbage 研发出一个电脑, Mechanical computer
+(Analytical Engine)， 不过还是未完成。</p>
+<p><strong>1842 年，Ada Lovelace 数学家帮忙 Charles Babbage，
+她的笔记被公认为是第一个计算机程序。</strong></p>
+<p>1911 年，Marchant calculator 被私人公司研发。</p>
+<p>1935-1938 年，德国人 Konrad Zuse 自己研发出 mechanical calculator
+Z1。</p>
+<p>1936 年，苏联开发出水流积算器（Water Integrator), 可运算
+non-homogeneous differential equations。</p>
+<p>1940 年，Konrad Zuse 展出 Z2 。</p>
+<p>1941 年，Konrad Zuse 展出德国政府赞助的可编程的通用型计算机 Z3 。</p>
+<p>1942 年，Konrad Zuse 开始研发 Z4。</p>
+<p>1943 年，美军赞助宾夕法尼亚大学团队开发 ENIAC 计算机。Z1 被轰炸。</p>
+<p>1945 年，Z4 附近地区被敌军轰炸而停滞。1949 年才继续研发出来。</p>
+<p>1946 年，trackball 为了雷达系统开发出来。ENIAC 开发完成。</p>
+<p>1948 年，苏联 20 人团队开发 MESM 可编程通用型电脑。1950
+年开发完成。</p>
+<p>1949 年，Moniac 液态 Analog computer 被纽西兰人 William Phillips
+开发用来预测英国经济。英国原子能科学研究院 (AERE) 开始开发 Harwell
+computer。</p>
+<p>1951 年，Harwell computer 开发完成。1957 年从哈韦尔搬家到比赛赢家<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=胡弗汉顿大学&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">胡弗汉顿大学</a>。改名为
+WITCH。1973 年捐去伯明翰博物馆。 2012 年在<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=英国国家计算机博物馆&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">英国国家计算机博物馆</a>(TNMOC)
+重启。</p>
+<p><strong>1953 年，IBM 的 John Backus 为了 IBM 701
+大型计算机开发了第一个高级程序语言 Speedcoding。之后John Backus 团队为了
+IBM 704 开始开发 FORTRAN 语言。</strong></p>
+<p>1954 年，日本推出继电器计算机 FACOM 100。</p>
+<p>1955 年，美国海军 Whirlwind Project 在 MIT 开发了可在屏幕画图的 Light
+Pen。MIT 研发 Tx-0 (Transistorized Experimental computer zero)
+电脑。</p>
+<p>1956 年，兰德公司和<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=卡内基梅隆大学&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">卡内基梅隆大学</a>开发出
+Information Processing Language (IPL)， 第一个 AI 程序语言。</p>
+<p><strong>1957 年，哈佛 Kenneth E. Iverson 已着手开发 APL 语言(1962
+年在 *A Programming Language 一书*公开)。</strong></p>
+<p>1958 年，MIT John McCarthy 研发出 Lisp 语言。<strong>John Backus 用
+Backus–Naur form 帮助<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=苏黎世联邦理工学院&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">苏黎世联邦理工学院</a>开发出
+ALGOL 语言 (即 ALGOL 58）。</strong></p>
+<p>1959 年，Lisp 推出 GC (Garbage Collection) 概念。CODASYL 联盟推出
+COBOL (common business-oriented language) 语言。Digital Equipment
+Corporation（DEC）基于 Tx-0 研发 PDP-1。</p>
+<p><strong>1960 年，在巴黎推出 ALGOL 60。</strong></p>
+<p>1962 年，DEC 推出 PDP-4。MIT 设计，DEC 和 Spear推出的第一台迷你电脑
+(12-bit) LINC (命名来源于 MIT Lincoln Laboratory)。</p>
+<p>1963 年，DEC 推出 (12-bit) PDP-5 和 (36-bit) PDP-6。MIT Lincoln TX-2
+电脑的一个叫 Sketchpad 程序有 light pen 画图功能。 ESR 教育公司推出 5
+美金的玩具型电脑 Digi-Comp I。<strong>剑桥和伦敦大学联手基于 ALGOL 60
+开发出 CPL (Combined Programming Language) 语言。</strong></p>
+<p>1964 年，DEC 推出 PDP-7。<strong>General Electric， Bell Labs， MIT
+联手计划开发 Multics 系统。</strong> IBM 开发了 PL/I 语言 (Programming
+Language One)。<strong><a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=达特茅斯学院&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">达特茅斯学院</a>
+Kemeny &amp; Kurtz 开发了 BASIC 语言。</strong></p>
+<p>1965 年，DEC 推出热销的商用 12-bit 电脑 PDP-8。</p>
+<p>1966 年，基于 ALGOL 60 的 ALGOL W 语言面世。</p>
+<p><strong>1967 年，剑桥教授 Martin Richards 基于 CPL 开发出 BCPL (Basic
+Combined Programming Language) 语言。</strong></p>
+<p>1968 年，德国 Telefunken 公司开发了 ball-based mouse。Mouse
+出现在斯坦福研究所开发的 NLS 可点击超链接功能的系统。几所大学合作的基于
+PL/I 的 XPL 语言出现，用来学习开发编译器。</p>
+<p>1969 年，<strong>Multics 的几个研究员放弃 Multics 而专帮 Bell Labs
+重新开发新的 OS 叫 UNIX。Ken Thompson 在 PDP-7 以汇编开发了 UNIX
+系统</strong>(命名来源: Multics -&gt; Unics -&gt; Unix)。</p>
+<p>1970 年，UNIX 1 从 PDP-7 移植到 PDP-11/20。Niklaus Wirth 基于 ALGOL W
+开发出 Pascal 语言。IBM 的 Edgar F. Codd 提出<a
+href="https://link.zhihu.com/?target=https%3A//www.seas.upenn.edu/~zives/03f/cis550/codd.pdf%3Ffbclid%3DIwAR2uTPAYHMV_6ryJ270-6hFjyjCjsm-QgaUh0_ES6QHyyKMIv39c9p0s31U">关系模型
+(Relational model)</a>。</p>
+<p>1971 年，出版 Unix 手册, 已有 mail, cp, su 命令， <strong>在 Thompson
+shell 执行。</strong></p>
+<p>1972 年，UNIX 2 在十台电脑安装。 有了 echo 命令和 c 编译器。
+<strong>Thompson 参考 BCPL 研发出 B 语言, 不过用在 PDP-11 有问题。
+Dennis Rithcie 根据 B+types 开发出新的 C 语言。 Thompson 使用时失败了 3
+次，Dennis 回去加上了 Structures 后才成功。</strong> UNIX 3 推广 C
+语言。 同年 UNIX 4 从汇编语言大量改成 C 语言。 Paul Allen 和 Bill Gates
+成立 Traf-O-Data 公司。</p>
+<p>1973 年，Mouse 不再停留在只点击链接, Xerox PARC 推出了以 Mouse+GUI
+为主要界面的 Xerox Alto 电脑。Digital Research 的 Gary Kildall 帮 Intel
+研发 PL/M （Programming Language for Microcomputers）语言。</p>
+<p>1974 年， UNIX 5 大量发出教育 <a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=license&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">license</a>。有了
+dd, find 命令。32-bit OS/32 系统的 Interdata 7/32 推出。</p>
+<p>1975 年，两个 Berkeley 研究生 Bill Joy 和 Chuck Haley 接触了 Ken
+Thompson 所带来的 UNIX 6 和 Pascal， 且改进了编辑器，称为 ex 。Unix
+Users Group 协会成立。Bill Gates 和 Paul Allen 看到 Altair 报道， 就联络
+Altair。 在 PDP-10 30 天内完成 Altair BASIC 翻译器。Allen 下机前才完成
+<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=bootstrap&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">bootstrap</a>
+程序。同年 "Micro-Soft" 成立，其基于 CP/M 系统(OS 基于 PL/M 语言) 的
+Altair 8800 电脑推出。</p>
+<p>1976 年，Steve Jobs 推出 Steve Wozniak 一手设计的 Apple 1 电脑, 用
+BASIC 编译。Bell labs 的 Stephen Bourne 开始开发 Bourne Shell (sh)。</p>
+<p>1977 年，Bill Joy 编译了和 UNIX 类似的 BSD 系统。商业化的 Unix 6 有了
+ratfor 和 bc 语言。Unix Users Group 协会因 "UNIX" 商标问题改名为
+USENIX。Commodore 国际推出 Commodore BASIC 系统的 Commodore PET 电脑。
+DEC 推出流行的 32-bit 电脑 VAX-11/780。 UNIX 移植在 Interdata 7/32 和
+Interdata 8/32。1977 至 1983 年， Jean Ichbiah 带队替美国国防部(DoD)
+设计 Ada 语言， 以代替该部成百的语言。 Larry J. Ellison 拜读了 1970 IBM
+Codd 的论文后， 和 Ampex 前上司 Robert Nimrod "Bob" Miner
+等人成立软体开发实验室 (Software Development Laboratories, SDL)。</p>
+<p>1978 年，苹果计划 Apple Lisa (有 GUI 的)电脑。 UNIX 7 把 Thompson
+shell 换成了 Bourne Shell， 有了 sed 和 awk 命令。 Bell Labs 卖 UNIX 7
+license 给 Microsoft。Dennis Ritchie 和 Brian Kernighan (两人简称
+K&amp;R) 出版了著名的 "The C Programming Language" 第一版。Bill Joy
+推出了基于 UNIX 6 的 1BSD。</p>
+<p>1979 年，UNIX 移植在 DEC VAX, 成为 UNIX/32V。Bill Joy 五月推出 2BSD,
+有了 vi 和 C shell。UNIX/32V 工具+2BSD 工具+虚拟内存（大改）内核的 3BSD
+在年尾推出。 生产 CP/M 硬件的 Novell 公司成立。 Bjarne Stroustrup 开发
+“C with Classes” 语言。Mike Lesk 在 1978 写的 UUCP (Unix-to-Unix Copy)
+程序随 UNIX 7 发布。北卡罗来纳大学研究生 Steve Bellovin
+出席杜克大学研究生 Jim Ellis 和 Tom Truscott 的开发类似 ARPANET
+的邮件列表（mailing lists） 以提供没参与 DARPA (<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=国防高级研究计划局&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">国防高级研究计划局</a>)
+项目的大学会议, 他先以 Bourne Shell 语言写了 Netnews 程序，能利用 UUCP
+程序通过调制解调器让两个电脑交换文件， 较后才以 C 语言重写。 Larry J.
+Ellison 改 SDL 公司名为 Relational Software, Inc. (RSI) ， 推出在
+PDP-11运行的 Oracle V2 (心理学， 没有人喜欢当小白鼠掏钱买 V1)，
+乃是首个商用关系数据库管理系统 (relational-database management system,
+RDBMS), 首个客户是 CIA (IBM 还没准备卖，
+所以才找到这家做着类似东西的公司， 负责找的 Dave Roberts 恰好是 Miner
+前上司, Oracle 是 CIA 项目的 <a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=codename&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">codename</a>)。</p>
+<p>1980 年，Microsoft 推出 UNIX 7 license 的 Xenix 系统， 卖给
+IBM/Intel/Tandy/Siemens (Siemens 改 Xenix 成 SINIX) 等 OEMs
+公司。英国推出 Sinclair BASIC 系统的 Sinclair ZX80 电脑。Commodore
+VIC-20 推出。欧洲核子研究组织(CERN) 的 Tim Berners-Lee 写了超文本 (
+hypertext) 程序 ENQUIRE。 UUCP 协议的 Usenet 新闻网公开。</p>
+<p>1981 年，Bill Gates 在 COMDEX 展览会发掘了IBM 电脑的 GUI 。Sinclair
+ZX 81 推出。IBM 姗姗来迟 (比 Oracle 迟了， 虽然 1970 论文是 IBM 写的)
+推出 SQL/DS (Structured Query Language/Data System)， 它的首个
+RDBMS。</p>
+<p>1982 年，大杂烩(PWB/UNIX 2.0, CB UNIX 3.0, UNIX/TS 3.0.1, UNIX/32V
+混在一起) UNIX System III 系统面世。Sinclair ZX Spectrum
+推出。鉴于主要产品 Oracle 名气大， RSI 公司第二次改名成 Oracle Systems
+Corporation。 Sun Microsystems 公司成立, Bill Joy 很快就加入。 Sun
+同年卖出 Sun-1 工作站, 乃是创办人之一 Andy Bechtolsheim 在斯坦福大学
+DARPA 赞助下设计的 CPU board, 系统是 UniSoft 移殖 Unix 7 的 UniPlus V7
+到 Motorola 68000 微处理器的 SunOS。</p>
+<p>1983 年，著名的商用 UNIX System V ( SysV) 系统面世。MIT 的 Richard
+Stallman 开展了 GNU Project，专门开发免费 license 的 UNIX-like(很像 UNIX
+但又不是 UNIX，GNU 也是 GNU's Not Unix 的缩写) 工具。Apple Lisa
+发布。4.2 BSD 推出。SunOS 曾一度融合 SysV 和 4.2 BSD。Anders Hejlsberg
+在 Borland 幂下开发 Turbo Pascal 和 Delphi 两个IDE (之后在微软带队开发了
+.Net, C#, TypeScript)。Novell 开发网络系统 NetWare。"C with Classes"
+重命名为 C++。由于 CIA 和 Navy Intelligence (海军情报)都要求移植在 VAX，
+Navy 还要支持 Unix， 以 C 语言重写成 Oracle v3。</p>
+<p>1984 年，Sinclair QDOS 系统的 Sinclair QL 推出。Linus Torvalds 也用过
+QL， 还写了自己的汇编器和编辑器。他 11 岁就接触日本推出的 Commodore
+VIC-20 电脑了 。</p>
+<p>1985 年，卡内基·梅隆大学的人，基于 4.2BSD 开发了 Mach
+系统微内核。Steve Jobs 的 NeXTSTEP 就是基于 Mach 系统内核, 多年后成为了
+Mac OS。 IBM 和 Microsoft 开始开发 OS/2。第一版 "The C++ Programming
+Language" 书发行。</p>
+<p>1986 年，4.3BSD 推出, 其 TCP/IP stack 影响力甚大。</p>
+<p>1987 年，一个大学教授开发了 MINIX OS 方便给学生学习。OS/2
+开发出来了。AT&amp;T (Bell labs 母公司)和 Sun 融合三巨头系统 BSD + SysV
++ Xenix， 称为 System V Release 4 (SVR4)。然后改名为 Solaris 2。</p>
+<p>1988 年，K&amp;R 改版 ANSI 标准的 "The C Programming Language"
+书出版。Steve Jobs 1985 年建立的 NeXT Inc. 推出 NeXT Computer
+工作站电脑。</p>
+<p>1989 年，为了移除 AT&amp;T license，BSD 推出 BSD license 的
+Networking Release 1 (Net/1) 系统。</p>
+<p>1990 年，GNU 要开发自家的 GNU Hurd 系统内核（也是参考 Mach）代替
+UNIX。</p>
+<p>1991 年，几乎砍掉所有 AT&amp;T 工具的 Net/2
+发行。几个月后，芬兰大学生 Linus Torvalds 不爽 MINIX 教育-only license
+，在 MINIX 平台写了 Linux 系统内核, 8月26日在新闻组(Usenet newsgroup
+)正式(7月3日是第一次提，不过目的是求人提供 POSIX 标准文件)分享， Linux
+系统大量安装了 GNU 的工具，所以 Richard Stallman 坚持人们称呼 Linux
+系统为 GNU/Linux 比较公平。随着 GNU GPL license 的 Linux 面世后， GNU
+Hurd 内核变成开发停滞。Berners-Lee 1989 年草拟，结合超文本 ( hypertext)
++ 传输控制协议(TCP) + 域名系統(DNS) 的概念组成 World Wide Web (WWW),
+第一个万维网网站 <a
+href="https://link.zhihu.com/?target=http%3A//info.cern.ch/">http://info.cern.ch</a>
+由欧洲核子研究组织(CERN)的 NeXT 主机在8月6日上线。</p>
+<p>1992 年，Berkeley Software Design (BSDi) 敢敢拿 Net/2 当成 BSD/386
+来卖钱后，被 AT&amp;T 控诉。</p>
+<p>1993 年，Novell 从 AT&amp;T 买下了 Unix System Laboratories
+分部。继承者 FreeBSD, NetBSD
+在官司期间已相续拔剑而出。美国国家超级电脑应用中心（NCSA）为 NCSA HTTPd
+web 服务器开发 CGI 标准。</p>
+<p>1994 年，BSD 和 Novell 和解后已失去开源开发者的信心， 与 Linux
+竞争已无可能。Solaris 2.4 发行。<a
+href="https://link.zhihu.com/?target=http%3A//www.shijieshangzuihaodeyuyan.com/">世界上最好的语言</a>终于刷存在感了，
+Rasmus Lerdorf 以 C 语言开发 Personal Home Page Tools (PHP Tools) 的一套
+CGI 二进制工具。</p>
+<p>1995 年，Berkeley 大学最后一个版本 4.4BSD-Lite Release 2 发行。
+Oracle Systems Corporation 改名改上瘾， 第三次改名成现今的 Oracle
+Corporation。<a
+href="https://link.zhihu.com/?target=http%3A//amazon.com/">Amazon.com</a>
+卖出第一本书 “Fluid Concepts and Creative Analogies”。</p>
+<p>1996 年， OpenBSD 推出。 Sun 发布 Java 1.0。 Compaq <a
+href="https://link.zhihu.com/?target=https%3A//s3.amazonaws.com/files.technologyreview.com/p/pub/legacy/compaq_cst_1996_0.pdf">内部文件</a>提出
+“Cloud Computing”。 史丹佛大学生 Larry Page 参与 Stanford Digital
+Library Project (SDLP) 项目。 他觉得 WWW 就是巨大的链接图像，
+所以打算打造反向链接 (Backlink) PageRank 算法的搜索引擎 BackRub
+以取代当今流行的关键字搜索次数算法， 随后 Sergey Brin 加入一起以 Java 和
+Python 语言开发。 爬虫在3月从 Larry Page 的史丹佛主页开始爬。
+他们也参考李彦宏的 “link analysis”, 即 IDD Information Services 的 <a
+href="https://link.zhihu.com/?target=http%3A//www.rankdex.com/about.html">Randex</a>
+的 anchor text 且在 <a
+href="https://link.zhihu.com/?target=https%3A//patents.google.com/patent/US6285999B1/en">2001
+的 patent 文件</a> 提及 (点击 1998 年的下载只能看见 2001)。</p>
+<p>1997 年， BackRub 改名成 Google。</p>
+<p>1998 年，Andi Gutmans 和 Zeev Suraski 与作者合作， 推出 PHP 3.0,
+递归缩写命名为 PHP: Hypertext Preprocessor ，也取代了 PHP/FI 2.0
+风格的命名。 <a
+target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=史丹佛大学&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A318102471%7D">史丹佛大学</a>博士生
+Larry Page 和 Sergey Brin 年初和数人发布了 <a
+href="https://link.zhihu.com/?target=http%3A//ilpubs.stanford.edu%3A8090/422/1/1999-66.pdf">PageRank
+算法论文</a>。 接着两人成立 Google 公司, 首轮四个主要投资人包括 Sun
+创办人之一 Andy Bechtolsheim 和 Amazon 创办人 Jeff Bezos。</p>
+<p>2000 年， Ericsson 在新加坡发布第一部蓝牙手机 Ericsson T36。 微软发布
+.NET Framework 1.0 Beta 1。</p>
+<p>2002 年， 微软发布 .NET Framework 1.0 Service Pack 1。</p>
+<p>2004 年， DragonFly BSD 推出。</p>
+<p>2006 年， Amazon 推出 Amazon Web Services (AWS) 平台。 3 月推出
+Amazon S3 （Amazon Simple Storage Service）, 8月公测 EC2 (Amazon Elastic
+Compute Cloud)。</p>
+<p>2009 年，NetWare v6.5 最后一版。</p>
+<p>2010 年， Oracle 收购 Sun。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/07/jetson-tx2-%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -973,91 +1291,6 @@ R \rightarrow(P ∧ \neg Q)
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/26/cpp1x-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="JintaoChen">
-      <meta itemprop="description" content="即刻动手，脚踏实地，持之以恒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JintaoChen's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/26/cpp1x-4/" class="post-title-link" itemprop="url">cpp1x_4</a>
-        </h2>
-
-        <div class="post-meta">
-		   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-26 10:52:08 / Modified: 11:03:57" itemprop="dateCreated datePublished" datetime="2020-04-26T10:52:08+08:00">2020-04-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="初始化列表">初始化列表：</h1>
-<p>初始化是一个非常重要的语言特性，最常见的就是对对象进行初始化。在传统
-C++ 中，不同的对象有着不同的初始化方法，例如普通数组、POD （plain old
-data，没有构造、析构和虚函数的类或结构体）类型都可以使用 <code>&#123;&#125;</code>
-进行初始化，也就是我们所说的初始化列表。而对于类对象的初始化，要么需要通过拷贝构造、要么就需要使用
-<code>()</code> 进行。这些不同方法都针对各自对象，不能通用。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">3</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;   <span class="comment">// 列表初始化</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> value;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Foo</span>(<span class="type">int</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Foo <span class="title">foo</span><span class="params">(<span class="number">1</span>)</span></span>;             <span class="comment">// 普通构造初始化</span></span><br></pre></td></tr></table></figure>
-<p>为了解决这个问题，C++11
-首先把初始化列表的概念绑定到了类型上，并将其称之为
-<code>std::initializer_list</code>，允许构造函数或其他函数像参数一样使用初始化列表，这就为类对象的初始化与普通数组和
-POD 的初始化方法提供了统一的桥梁，例如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;initializer_list&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Magic</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Magic</span>(std::initializer_list&lt;<span class="type">int</span>&gt; list) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Magic magic = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; v = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br></pre></td></tr></table></figure>
-<p>这种构造函数被叫做初始化列表构造函数，具有这种构造函数的类型将在初始化时被特殊关照。</p>
-<p>初始化列表除了用在对象构造上，还能将其作为普通函数的形参，例如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(std::initializer_list&lt;<span class="type">int</span>&gt; list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">func</span>(&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;);</span><br></pre></td></tr></table></figure>
-<p>其次，C++11 提供了统一的语法来初始化任意的对象，例如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span> &#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">float</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">B</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">B</span>(<span class="type">int</span> _a, <span class="type">float</span> _b): <span class="built_in">a</span>(_a), <span class="built_in">b</span>(_b) &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">float</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">A a &#123;<span class="number">1</span>, <span class="number">1.1</span>&#125;;    <span class="comment">// 统一的初始化语法</span></span><br><span class="line">B b &#123;<span class="number">2</span>, <span class="number">2.2</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1127,7 +1360,7 @@ POD 的初始化方法提供了统一的桥梁，例如：</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1138,7 +1371,7 @@ POD 的初始化方法提供了统一的桥梁，例如：</p>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
